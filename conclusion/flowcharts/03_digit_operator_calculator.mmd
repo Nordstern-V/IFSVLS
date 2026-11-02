@@ -1,0 +1,36 @@
+flowchart TB
+    frame["#10 实时 / 冻结原始帧<br/>FREEZE 保存原始帧副本"]:::ps
+    roi["#2 D 字符 ROI<br/>先取原尺寸的单个字形"]:::ps
+    glyph["#14 字形预处理<br/>灰度 / 二值 / 形态 → 32×32"]:::ps
+    input["#19 输入适配<br/>数值预处理 / 12 路打包 / DMA"]:::ps
+    tcu["#18 同一个 PL TCU<br/>现有 ResNet 骨干提取特征"]:::pl
+    output["#19 输出适配<br/>按模型分段：raw84 → feature80"]:::ps
+    preview["#10 字形预览<br/>显示 32×32 二值化输入"]:::ps
+    cache["#17 独立缓存文件<br/>数字 0～9 支持库<br/>加 / 减 / 乘 / 除支持库"]:::data
+    banks["#17 启动加载<br/>数字 / 算符独立数据区<br/>OP MODE 选择其中一套"]:::data
+    classify["#8 / #9 / #15 NCM 分类<br/>数字分类器 / 算符分类器<br/>各自的均值、样本与预测历史"]:::ps
+    stable["#11 候选稳定检查<br/>平滑 / 门限 / 连续一致<br/>屏幕结果与当前候选一致"]:::ps
+    confirm["#11 READY 后用户确认<br/>冻结 + Xn / OPn；防止重复存入"]:::ps
+    expression["#11 表达式编辑<br/>数字 / 算符交替；UNDO / RESET"]:::ps
+    calc["#12 PS 四则运算<br/>OUT → 有理数计算 / 错误处理"]:::ps
+    display["#1 LCD 结果显示<br/>表达式、结果或错误提示"]:::ps
+    build["#17 支持图片 → #14 相同字形预处理 → #18 实板 TCU → 数字 / 算符缓存文件<br/>建库命令独立运行；A/B 的 SAVE / LOAD 不会加载或修改这两套支持库"]:::tool
+    frame --> roi
+    roi --> glyph
+    glyph --> input
+    input --> tcu
+    tcu -->|"raw84"| output
+    output -->|"80D"| classify
+    glyph --> preview
+    cache --> banks
+    banks -->|"支持样本"| classify
+    classify --> stable
+    stable -->|"READY"| confirm
+    confirm --> expression
+    expression --> calc
+    calc --> display
+    classDef ps fill:#EDF4FB,stroke:#93B2CB,color:#173C5B
+    classDef pl fill:#EDF6EF,stroke:#96BBA2,color:#275639
+    classDef data fill:#FFF5DF,stroke:#D3BA85,color:#624B22
+    classDef tool fill:#F3F4F6,stroke:#B2BAC4,color:#364457
+    classDef ext fill:#FFFFFF,stroke:#9CAABA,color:#25394C

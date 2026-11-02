@@ -1,0 +1,41 @@
+flowchart TB
+    build["#30 构建与部署<br/>Vivado / Tcl → 匹配的 bitstream / HWH"]:::tool
+    overlay["#24 加载单个 Overlay<br/>初始化同一套视频 / 触摸 / TCU 硬件"]:::ps
+    touch["#21 / #26 初始化触摸并 fork<br/>先启动独立 IIC 子进程，再创建其他线程"]:::ps
+    models["#24 / #25 加载模型并创建 UI<br/>加载 #17 支持库，启动单个 TCU 后台线程"]:::ps
+    video["#22 键盘 → #20 视频初始化<br/>启动键盘线程 → 摄像头 / LCD / 预热帧"]:::ps
+    loop["#1 / #20 / #27 主循环<br/>读帧 → 同步输入 → 提交任务<br/>叠加 UI → 归还视频帧 → 下一帧"]:::ps
+    monitor["#26 父进程监测<br/>读取心跳 / 检查子进程是否退出"]:::tool
+    timeout["出现心跳超时或进程退出<br/>正常时继续监测，异常才进入恢复"]:::tool
+    kill["#26 结束旧 IIC 子进程<br/>释放阻塞在底层调用中的执行单元"]:::tool
+    reset["#21 触摸与 IIC 复位<br/>GPIO 硬复位 → AXI IIC SOFTR"]:::tool
+    restart["#26 重建并初始化触摸子进程<br/>恢复坐标读取和心跳"]:::tool
+    sync["#27 恢复输入处理<br/>继续同步触摸 / 键盘事件<br/>取消失效的旧输入状态"]:::ps
+    usbfix["#32 USB 启动修复 / 回退<br/>匹配镜像 → 校验 / 备份 → 设备树修复"]:::tool
+    host["#22 Linux USB Host<br/>重启后枚举键盘 → evdev 输入"]:::ps
+    validate["#31 模块验证 / 回归<br/>触摸、键盘、TCU 边界及应用软件检查"]:::tool
+    platform["#23 7020 板级平台<br/>PS / DDR / AXI / 时钟 / 复位 / 管脚"]:::pl
+    health["#28 运行状态 / 诊断<br/>主循环、触摸与键盘健康 → 串口日志"]:::tool
+    exit["#29 安全退出<br/>Ctrl-C / 时限 → 停止任务与进程<br/>释放视频帧、键盘和运行资源"]:::tool
+    build --> overlay
+    overlay --> touch
+    touch --> models
+    models --> video
+    video --> loop
+    monitor -.-> timeout
+    timeout -.-> kill
+    kill -.-> reset
+    reset -.-> restart
+    restart -.-> sync
+    sync -.-> monitor
+    touch -.->|"心跳"| monitor
+    usbfix -.->|"重启后"| host
+    validate -.->|"旁路验证，不是每帧步骤"| touch
+    platform -.->|"底层平台支撑"| overlay
+    loop -.->|"状态观测"| health
+    loop -.->|"Ctrl-C / 运行时限"| exit
+    classDef ps fill:#EDF4FB,stroke:#93B2CB,color:#173C5B
+    classDef pl fill:#EDF6EF,stroke:#96BBA2,color:#275639
+    classDef data fill:#FFF5DF,stroke:#D3BA85,color:#624B22
+    classDef tool fill:#F3F4F6,stroke:#B2BAC4,color:#364457
+    classDef ext fill:#FFFFFF,stroke:#9CAABA,color:#25394C

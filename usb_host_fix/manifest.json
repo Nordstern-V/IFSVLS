@@ -1,0 +1,13 @@
+{
+  "fix_id": "zynq7020-pynq27-usb-host-20261101",
+  "original_image_sha256": "b502ca462cb57a43834c5cd0756ac38c6a28d6760cf27e942ea97dacd36c91f1",
+  "patched_image_sha256": "b72b9ee15590152d88239b17887ba5aa0b8699e4fe53cbebcac406beea4ff3aa",
+  "patched_image_file": "IMAGE_USB_HOST.ub",
+  "kernel_sha256": "77eede4353f6f5761d710fe0e83519d80c6f49faf26ea0ed5e5add73f765e22d",
+  "boot_tested": false,
+  "changes": [
+    "USB0 dr_mode=host",
+    "USB0 usb-phy phandle reference",
+    "ULPI PHY node at e0002000, view-port 0x170, drv-vbus"
+  ]
+}

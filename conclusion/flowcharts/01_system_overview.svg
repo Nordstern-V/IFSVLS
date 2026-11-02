@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1600" viewBox="0 0 2200 1600">
+<title>PEFSL_MIX_PLUS · 系统总体连接</title>
+<desc>图 1　从摄像头、触摸与键盘输入，到学习、识别、计算和 LCD 输出</desc>
+<rect width="100%" height="100%" fill="white"/>
+<text x="60.0" y="84.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="44" font-weight="700" fill="#1A2D40">PEFSL_MIX_PLUS · 系统总体连接</text>
+<text x="60.0" y="133.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#536375">图 1　从摄像头、触摸与键盘输入，到学习、识别、计算和 LCD 输出</text>
+<polyline points="60,170 2140,170" fill="none" stroke="#DCE3E9" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="60,192 130,192" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="145.0" y="199.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#536375">图像 / 特征 / 事件</text>
+<polyline points="430,192 500,192" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<text x="515.0" y="199.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#536375">配置 / 管理 / 恢复</text>
+<text x="1500.0" y="199.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#536375"># 编号对应 model.md</text>
+<rect x="60" y="240" width="300" height="130" rx="12" fill="#FFFFFF" stroke="#9CAABA" stroke-width="2"/>
+<text x="111.0" y="295.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#25394C">OV5640 摄像头</text>
+<text x="141.0" y="335.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#25394C">外部图像输入</text>
+<rect x="460" y="240" width="400" height="130" rx="12" fill="#EDF6EF" stroke="#96BBA2" stroke-width="2"/>
+<text x="518.0" y="295.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#275639">#20 视频采集 / VDMA</text>
+<text x="542.0" y="335.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#275639">PL 通路与 DDR 帧缓冲</text>
+<rect x="1030" y="240" width="450" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1139.5" y="295.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#1 实时画面与界面</text>
+<text x="1109.0" y="335.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">原始帧读取 → UI / 结果叠加</text>
+<rect x="1720" y="240" width="420" height="130" rx="12" fill="#FFFFFF" stroke="#9CAABA" stroke-width="2"/>
+<text x="1794.5" y="295.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#25394C">RGB LCD · 800×480</text>
+<text x="1822.0" y="335.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#25394C">经 #20 视频输出显示</text>
+<rect x="60" y="540" width="410" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="106.0" y="595.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">触摸屏 → #21 IIC / GPIO</text>
+<text x="127.0" y="635.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">独立触摸进程生成坐标事件</text>
+<rect x="60" y="770" width="410" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="128.5" y="825.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">USB 键盘 → #22 输入</text>
+<text x="136.0" y="865.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">Host / evdev / 键盘线程</text>
+<rect x="570" y="650" width="400" height="140" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="619.0" y="710.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#27 输入同步与状态保护</text>
+<text x="632.0" y="750.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">按时间顺序合并触摸和按键</text>
+<rect x="1080" y="530" width="500" height="180" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1183.5" y="594.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#2 / #6 / #10 交互控制</text>
+<text x="1227.0" y="634.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">单框 ROI · 类别命名</text>
+<text x="1193.0" y="667.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">模式切换 · 冻结 / 字形预览</text>
+<rect x="1080" y="850" width="500" height="170" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1187.0" y="909.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#3 / #4 / #5 / #8 / #9</text>
+<text x="1194.0" y="949.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">A 学习 · B 手动 / 自动扫描</text>
+<text x="1236.5" y="982.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">D 数字 / 算符识别</text>
+<rect x="1710" y="825" width="420" height="220" rx="12" fill="#EDF6EF" stroke="#96BBA2" stroke-width="2"/>
+<text x="1734.5" y="890.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#275639">#25 / #13 / #14 / #19 / #18</text>
+<text x="1812.0" y="927.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#275639">共享特征处理通路</text>
+<text x="1806.5" y="967.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#275639">任务串行 · 图像预处理</text>
+<text x="1765.0" y="1000.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#275639">适配 / DMA ↔ 同一个 PL TCU</text>
+<rect x="1080" y="1170" width="500" height="160" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1184.5" y="1224.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#15 / #16 / #11 / #12</text>
+<text x="1188.0" y="1264.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">学习提交 · NCM / 扫描筛选</text>
+<text x="1172.5" y="1297.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">候选确认 → 表达式 → PS 运算</text>
+<rect x="570" y="1170" width="400" height="160" rx="12" fill="#FFF5DF" stroke="#D3BA85" stroke-width="2"/>
+<text x="655.0" y="1224.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#624B22">#7 / #17 数据管理</text>
+<text x="666.0" y="1264.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#624B22">A/B 学习数据及名称</text>
+<text x="643.0" y="1297.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#624B22">数字库 / 算符库独立加载</text>
+<rect x="60" y="1110" width="410" height="160" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="168.0" y="1164.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">#26 触摸看门狗</text>
+<text x="184.5" y="1204.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">父进程监测心跳</text>
+<text x="138.5" y="1237.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">超时复位并重建触摸进程</text>
+<rect x="60" y="1430" width="2080" height="105" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="575.5" y="1473.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">#23 平台 · #24 初始化 · #28 诊断 · #29 退出 · #30 构建 · #31 验证 · #32 USB 修复</text>
+<text x="791.0" y="1513.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">为上层链路提供配置、运行保障与工程维护，展开关系见图 4</text>
+<polyline points="360,305 460,305" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="460.0,305.0 446.0,299.0 446.0,311.0" fill="#43566B"/>
+<polyline points="860,305 1030,305" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1030.0,305.0 1016.0,299.0 1016.0,311.0" fill="#43566B"/>
+<rect x="905.5" y="268" width="79.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="913.5" y="291.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">图像帧</text>
+<polyline points="1480,305 1720,305" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1720.0,305.0 1706.0,299.0 1706.0,311.0" fill="#43566B"/>
+<rect x="1529.0" y="268" width="142.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1537.0" y="291.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">叠加后的画面</text>
+<polyline points="1255,370 1255,530" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1255.0,530.0 1261.0,516.0 1249.0,516.0" fill="#43566B"/>
+<rect x="1297.5" y="433" width="205.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1305.5" y="456.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">原始帧 / 冻结帧选择</text>
+<polyline points="470,605 520,605 520,700 570,700" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="570.0,700.0 556.0,694.0 556.0,706.0" fill="#43566B"/>
+<polyline points="470,835 520,835 520,750 570,750" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="570.0,750.0 556.0,744.0 556.0,756.0" fill="#43566B"/>
+<polyline points="970,720 1020,720 1020,640 1080,640" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1080.0,640.0 1066.0,634.0 1066.0,646.0" fill="#43566B"/>
+<polyline points="1330,710 1330,850" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1330.0,850.0 1336.0,836.0 1324.0,836.0" fill="#43566B"/>
+<rect x="1390.5" y="768" width="179.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1398.5" y="791.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">ROI / 模式 / 名称</text>
+<polyline points="1580,935 1710,935" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1710.0,935.0 1696.0,929.0 1696.0,941.0" fill="#43566B"/>
+<polyline points="1920,1045 1920,1110 1450,1110 1450,1170" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1450.0,1170.0 1456.0,1156.0 1444.0,1156.0" fill="#43566B"/>
+<rect x="1690.5" y="1073" width="109.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1698.5" y="1096.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">80 维特征</text>
+<polyline points="970,1250 1080,1250" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1080.0,1250.0 1066.0,1244.0 1066.0,1256.0" fill="#43566B"/>
+<polygon points="970.0,1250.0 984.0,1256.0 984.0,1244.0" fill="#43566B"/>
+<rect x="996.0" y="1213" width="58.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1004.0" y="1236.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">样本</text>
+<polyline points="1580,1250 2170,1250 2170,420 1410,420 1410,370" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1410.0,370.0 1404.0,384.0 1416.0,384.0" fill="#43566B"/>
+<rect x="1742.0" y="1288" width="236.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1750.0" y="1311.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">识别 / 计算结果返回 #1</text>
+<polyline points="260,1110 260,1010 30,1010 30,605 60,605" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="60.0,605.0 46.0,599.0 46.0,611.0" fill="#8390A0"/>
+<polygon points="260.0,1110.0 266.0,1096.0 254.0,1096.0" fill="#8390A0"/>
+<rect x="147.5" y="978" width="205.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="155.5" y="1001.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#8390A0">心跳监测 / 复位重建</text>
+</svg>

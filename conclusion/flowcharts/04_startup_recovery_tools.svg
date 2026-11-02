@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1610" viewBox="0 0 2200 1610">
+<title>启动、恢复与工程保障</title>
+<desc>图 4　启动是单次流程；触摸恢复独立监测；构建、验证与 USB 修复属于旁路支撑</desc>
+<rect width="100%" height="100%" fill="white"/>
+<text x="60.0" y="84.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="44" font-weight="700" fill="#1A2D40">启动、恢复与工程保障</text>
+<text x="60.0" y="133.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#536375">图 4　启动是单次流程；触摸恢复独立监测；构建、验证与 USB 修复属于旁路支撑</text>
+<polyline points="60,170 2140,170" fill="none" stroke="#DCE3E9" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="60,192 130,192" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="145.0" y="199.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#536375">图像 / 特征 / 事件</text>
+<polyline points="430,192 500,192" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<text x="515.0" y="199.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#536375">配置 / 管理 / 恢复</text>
+<text x="1500.0" y="199.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#536375"># 编号对应 model.md</text>
+<text x="60.0" y="270.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#173C5B">启动与进入主循环</text>
+<text x="790.0" y="270.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#173C5B">运行中的触摸恢复</text>
+<text x="1520.0" y="270.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#364457">系统与工程支撑</text>
+<rect x="60" y="310" width="610" height="115" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="268.0" y="358.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">#30 构建与部署</text>
+<text x="147.5" y="398.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">Vivado / Tcl → 匹配的 bitstream / HWH</text>
+<rect x="60" y="510" width="610" height="115" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="225.0" y="558.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#24 加载单个 Overlay</text>
+<text x="177.0" y="598.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">初始化同一套视频 / 触摸 / TCU 硬件</text>
+<rect x="60" y="710" width="610" height="115" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="182.5" y="758.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#21 / #26 初始化触摸并 fork</text>
+<text x="159.5" y="798.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">先启动独立 IIC 子进程，再创建其他线程</text>
+<rect x="60" y="910" width="610" height="115" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="182.0" y="958.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#24 / #25 加载模型并创建 UI</text>
+<text x="147.0" y="998.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">加载 #17 支持库，启动单个 TCU 后台线程</text>
+<rect x="60" y="1110" width="610" height="115" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="190.0" y="1158.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#22 键盘 → #20 视频初始化</text>
+<text x="162.0" y="1198.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">启动键盘线程 → 摄像头 / LCD / 预热帧</text>
+<rect x="60" y="1310" width="610" height="150" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="223.5" y="1359.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#1 / #20 / #27 主循环</text>
+<text x="213.0" y="1399.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">读帧 → 同步输入 → 提交任务</text>
+<text x="197.5" y="1432.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">叠加 UI → 归还视频帧 → 下一帧</text>
+<rect x="790" y="310" width="610" height="115" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="998.0" y="358.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">#26 父进程监测</text>
+<text x="933.5" y="398.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">读取心跳 / 检查子进程是否退出</text>
+<rect x="790" y="510" width="610" height="115" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="946.5" y="558.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">出现心跳超时或进程退出</text>
+<text x="922.5" y="598.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">正常时继续监测，异常才进入恢复</text>
+<rect x="790" y="710" width="610" height="115" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="958.5" y="758.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">#26 结束旧 IIC 子进程</text>
+<text x="922.5" y="798.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">释放阻塞在底层调用中的执行单元</text>
+<rect x="790" y="910" width="610" height="115" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="972.0" y="958.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">#21 触摸与 IIC 复位</text>
+<text x="933.5" y="998.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">GPIO 硬复位 → AXI IIC SOFTR</text>
+<rect x="790" y="1110" width="610" height="115" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="917.0" y="1158.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">#26 重建并初始化触摸子进程</text>
+<text x="991.5" y="1198.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">恢复坐标读取和心跳</text>
+<rect x="790" y="1310" width="610" height="150" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="984.5" y="1359.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#27 恢复输入处理</text>
+<text x="968.0" y="1399.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">继续同步触摸 / 键盘事件</text>
+<text x="980.0" y="1432.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">取消失效的旧输入状态</text>
+<rect x="1520" y="310" width="620" height="115" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="1673.5" y="358.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">#32 USB 启动修复 / 回退</text>
+<text x="1631.5" y="398.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">匹配镜像 → 校验 / 备份 → 设备树修复</text>
+<rect x="1520" y="510" width="620" height="115" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1695.5" y="558.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#22 Linux USB Host</text>
+<text x="1672.0" y="598.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">重启后枚举键盘 → evdev 输入</text>
+<rect x="1520" y="710" width="620" height="115" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="1705.0" y="758.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">#31 模块验证 / 回归</text>
+<text x="1631.5" y="798.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">触摸、键盘、TCU 边界及应用软件检查</text>
+<rect x="1520" y="910" width="620" height="115" rx="12" fill="#EDF6EF" stroke="#96BBA2" stroke-width="2"/>
+<text x="1708.5" y="958.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#275639">#23 7020 板级平台</text>
+<text x="1643.0" y="998.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#275639">PS / DDR / AXI / 时钟 / 复位 / 管脚</text>
+<rect x="1520" y="1110" width="620" height="115" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="1705.0" y="1158.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">#28 运行状态 / 诊断</text>
+<text x="1639.0" y="1198.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">主循环、触摸与键盘健康 → 串口日志</text>
+<rect x="1520" y="1310" width="620" height="150" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="1746.5" y="1359.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">#29 安全退出</text>
+<text x="1664.0" y="1399.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">Ctrl-C / 时限 → 停止任务与进程</text>
+<text x="1680.5" y="1432.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">释放视频帧、键盘和运行资源</text>
+<polyline points="365,425 365,510" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="365.0,510.0 371.0,496.0 359.0,496.0" fill="#43566B"/>
+<polyline points="365,625 365,710" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="365.0,710.0 371.0,696.0 359.0,696.0" fill="#43566B"/>
+<polyline points="365,825 365,910" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="365.0,910.0 371.0,896.0 359.0,896.0" fill="#43566B"/>
+<polyline points="365,1025 365,1110" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="365.0,1110.0 371.0,1096.0 359.0,1096.0" fill="#43566B"/>
+<polyline points="365,1225 365,1310" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="365.0,1310.0 371.0,1296.0 359.0,1296.0" fill="#43566B"/>
+<polyline points="1095,425 1095,510" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="1095.0,510.0 1101.0,496.0 1089.0,496.0" fill="#8390A0"/>
+<polyline points="1095,625 1095,710" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="1095.0,710.0 1101.0,696.0 1089.0,696.0" fill="#8390A0"/>
+<polyline points="1095,825 1095,910" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="1095.0,910.0 1101.0,896.0 1089.0,896.0" fill="#8390A0"/>
+<polyline points="1095,1025 1095,1110" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="1095.0,1110.0 1101.0,1096.0 1089.0,1096.0" fill="#8390A0"/>
+<polyline points="1095,1225 1095,1310" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="1095.0,1310.0 1101.0,1296.0 1089.0,1296.0" fill="#8390A0"/>
+<polyline points="1400,1380 1460,1380 1460,367 1400,367" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="1400.0,367.0 1414.0,373.0 1414.0,361.0" fill="#8390A0"/>
+<polyline points="670,767 730,767 730,367 790,367" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="790.0,367.0 776.0,361.0 776.0,373.0" fill="#8390A0"/>
+<rect x="701.0" y="460" width="58.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="709.0" y="483.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#8390A0">心跳</text>
+<polyline points="1830,425 1830,510" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="1830.0,510.0 1836.0,496.0 1824.0,496.0" fill="#8390A0"/>
+<rect x="1860.5" y="449" width="79.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1868.5" y="472.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#8390A0">重启后</text>
+<polyline points="1520,767 1480,767 1480,865 700,865 700,767 670,767" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="670.0,767.0 684.0,773.0 684.0,761.0" fill="#8390A0"/>
+<rect x="971.5" y="833" width="247.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="979.5" y="856.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#8390A0">旁路验证，不是每帧步骤</text>
+<polyline points="1520,967 1490,967 1490,1060 710,1060 710,567 670,567" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="670.0,567.0 684.0,573.0 684.0,561.0" fill="#8390A0"/>
+<rect x="1024.0" y="1028" width="142.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1032.0" y="1051.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#8390A0">底层平台支撑</text>
+<polyline points="670,1425 700,1425 700,1510 2170,1510 2170,1167 2140,1167" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="2140.0,1167.0 2154.0,1173.0 2154.0,1161.0" fill="#8390A0"/>
+<rect x="1680.0" y="1478" width="100.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1688.0" y="1501.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#8390A0">状态观测</text>
+<polyline points="670,1445 720,1445 720,1550 2185,1550 2185,1385 2140,1385" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="2140.0,1385.0 2154.0,1391.0 2154.0,1379.0" fill="#8390A0"/>
+<rect x="1700.0" y="1518" width="180.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1708.0" y="1541.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#8390A0">Ctrl-C / 运行时限</text>
+</svg>

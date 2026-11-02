@@ -1,0 +1,33 @@
+flowchart TB
+    camera["OV5640 摄像头<br/>外部图像输入"]:::ext
+    video["#20 视频采集 / VDMA<br/>PL 通路与 DDR 帧缓冲"]:::pl
+    ui["#1 实时画面与界面<br/>原始帧读取 → UI / 结果叠加"]:::ps
+    lcd["RGB LCD · 800×480<br/>经 #20 视频输出显示"]:::ext
+    touch["触摸屏 → #21 IIC / GPIO<br/>独立触摸进程生成坐标事件"]:::ps
+    keyboard["USB 键盘 → #22 输入<br/>Host / evdev / 键盘线程"]:::ps
+    events["#27 输入同步与状态保护<br/>按时间顺序合并触摸和按键"]:::ps
+    control["#2 / #6 / #10 交互控制<br/>单框 ROI · 类别命名<br/>模式切换 · 冻结 / 字形预览"]:::ps
+    jobs["#3 / #4 / #5 / #8 / #9<br/>A 学习 · B 手动 / 自动扫描<br/>D 数字 / 算符识别"]:::ps
+    engine["#25 / #13 / #14 / #19 / #18<br/>共享特征处理通路<br/>任务串行 · 图像预处理<br/>适配 / DMA ↔ 同一个 PL TCU"]:::pl
+    result["#15 / #16 / #11 / #12<br/>学习提交 · NCM / 扫描筛选<br/>候选确认 → 表达式 → PS 运算"]:::ps
+    data["#7 / #17 数据管理<br/>A/B 学习数据及名称<br/>数字库 / 算符库独立加载"]:::data
+    watchdog["#26 触摸看门狗<br/>父进程监测心跳<br/>超时复位并重建触摸进程"]:::tool
+    support["#23 平台 · #24 初始化 · #28 诊断 · #29 退出 · #30 构建 · #31 验证 · #32 USB 修复<br/>为上层链路提供配置、运行保障与工程维护，展开关系见图 4"]:::tool
+    camera --> video
+    video -->|"图像帧"| ui
+    ui -->|"叠加后的画面"| lcd
+    ui -->|"原始帧 / 冻结帧选择"| control
+    touch --> events
+    keyboard --> events
+    events --> control
+    control -->|"ROI / 模式 / 名称"| jobs
+    jobs --> engine
+    engine -->|"80 维特征"| result
+    data <-->|"样本"| result
+    result -->|"识别 / 计算结果返回 #1"| ui
+    watchdog <-.->|"心跳监测 / 复位重建"| touch
+    classDef ps fill:#EDF4FB,stroke:#93B2CB,color:#173C5B
+    classDef pl fill:#EDF6EF,stroke:#96BBA2,color:#275639
+    classDef data fill:#FFF5DF,stroke:#D3BA85,color:#624B22
+    classDef tool fill:#F3F4F6,stroke:#B2BAC4,color:#364457
+    classDef ext fill:#FFFFFF,stroke:#9CAABA,color:#25394C

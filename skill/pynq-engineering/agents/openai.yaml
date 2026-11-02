@@ -1,0 +1,4 @@
+interface:
+  display_name: "PYNQ 工程移植与排障"
+  short_description: "PYNQ 板级适配、外设排障、视频与加速器集成及板端验证"
+  default_prompt: "使用 $pynq-engineering 先核对当前工程与板端环境，再定位并修复问题，给出最小部署清单与验证方法。"

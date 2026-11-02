@@ -1,0 +1,1571 @@
+{
+  "schema": 1,
+  "project": "PEFSL_MIX_PLUS",
+  "packaged_date": "2026-11-02",
+  "repository": "Nordstern-V/IFSVLS",
+  "description": "Selected sources and required runtime inputs; manifest excludes its own hash.",
+  "selection_notes": {
+    "hardware": [
+      "Vivado 2025.2, target xc7z020clg400-2; artifacts retain the paired board-validated bit/hwh.",
+      "Only used IP repositories axi_dynclk, cmos_capture_data, rgb2lcd and LCD interface definitions are included; unrelated HLS/audio/HDMI IP are excluded.",
+      "XCI files are pinned IP configuration inputs; generated RTL, runs, caches, reports, logs, journals and backups are excluded.",
+      "The generated fix3 wrapper is copied into srcs/sources_1/hdl; the published XPR references that source and has no original drive path.",
+      "sources/touch_reference is retained as design reference; active touch hardware uses AXI IIC/GPIO instead of directly instantiating these modules.",
+      "Model files and tcu_pynq runtime are selected by the software package task.",
+      "BD and all XCI files are preserved byte-for-byte; their inherited fix3 generation paths are relative output directories, not dependencies to upload."
+    ],
+    "software": [
+      "Current board version: mix-plus-ab-r17-20261101-r21-keyboard-calc10; PEFSL_C124 is an optional independent PC reference.",
+      "49 digit_support/debug_binary PNGs and 20 operator_support/debug_binary PNGs are required support inputs, not generated diagnostics.",
+      "digit_support_r17.npz is present and loadable (10 classes/49 images/80D); cache-recorded bitstream and tmodel hashes match existing artifacts.",
+      "operator_support_r17.npz is absent and must be built on the board using digit_recognizer.py build --class-set operators.",
+      "TCU model data requires all three same-prefix .tmodel/.tprog/.tdata files plus current bit/hwh and complete selected tcu_pynq runtime modules.",
+      "Board prerequisites: matching Alientek ZYNQ-7020 PYNQ 2.7 image, OV5640, LCD 800x480 ID 0x7084, PYNQ/Numpy/OpenCV/cffi; no general pip install from the PC requirements on ARM.",
+      "usb_host_fix is required only when the matching original vendor image lacks USB Host; apply script enforces exact boot-image SHA256 and makes a backup. Different images must not use this candidate.",
+      "Excluded pycache, personal learned NPZ, diagnostics, historical reference test test_ab_r17_restore.py, old camera overlays/notebooks, unrelated plan histories and recovery images.",
+      "The additional Apache-2.0 LICENSE in overrides/tcu_deploy/tcu_pynq/LICENSE was copied verbatim from the existing upstream Tensil checkout under PEFSL/driver_audit/tensil_d3baeb6/LICENSE.",
+      "Software deployment and validation instructions are in overrides/docs/software_reproduction.md."
+    ],
+    "skill": [
+      "Keep all 16 files in skill/: both skills and their referenced resources are self-contained. No logs, bytecode, runtime snapshots, credentials or board access passwords were found.",
+      "All five relative Markdown links from pynq-engineering/SKILL.md resolve; case_study.md/result_template.md and evidence references in pc-engineering also exist.",
+      "The pc-engineering/evidence CSV is a 22-row historical offline evaluation summary, not raw runtime output. Its recorded SHA-256 matches the local CSV. The original images, videos, NPZ archives and source run logs are explicitly not part of the skill package.",
+      "The PYNQ collector parses as Python 3.8 syntax and uses the standard library only. No hardware diagnostic collection was executed for this packaging review.",
+      "Include the four stable conclusion Markdown documents and eight SVG/Mermaid diagram files. Overrides replace workstation-specific Markdown links with checkout-relative links, fix model.md's old conclusion.md location, and embed SVG instead of redundant PNG copies.",
+      "Most plan documents describe older intermediate versions or deployment stages; exclude them from the minimal reproduction package and use the new root README as the entry point.",
+      "Original project files remain untouched. Historical links to external baseline checkouts and unselected old reports are rendered as explanatory plain text in the packaging overrides."
+    ]
+  },
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size": 83,
+      "sha256": "8df78886d24cf5756e46d4ddcb77791e765df81225e07fd1e0656296f4535848"
+    },
+    {
+      "path": ".gitignore",
+      "size": 405,
+      "sha256": "2c59a2fcf97159a96dbf562bee206e0f5513e645e2c4bc4bacbb74b470676f1f"
+    },
+    {
+      "path": "PEFSL_C124/LICENSE",
+      "size": 1071,
+      "sha256": "c39d641cef6443296648f43baa4e7a2e28949c6f51f9be477909147d48a76ba1"
+    },
+    {
+      "path": "PEFSL_C124/README_先读我.md",
+      "size": 3942,
+      "sha256": "bffed801479737a8bd1e84022c2d2e86af322dd02917fa3a60ef9d7a3c1601dc"
+    },
+    {
+      "path": "PEFSL_C124/SHA256SUMS.txt",
+      "size": 2452,
+      "sha256": "ed3aa7d65ee265833a4f8695ee21e48e736bfcd76b8f274f8b2118fe8817687b"
+    },
+    {
+      "path": "PEFSL_C124/VERSION.json",
+      "size": 5446,
+      "sha256": "7bb288d46c56a9fa932afd0249fd20eef7d821e7faa92b2280d6e22ac290bbfc"
+    },
+    {
+      "path": "PEFSL_C124/backbone_loader/backbone_loader.py",
+      "size": 1306,
+      "sha256": "12d186c30ad3d92ced60dd1cff7cf7804d249add9164ee84ddeb642736219960"
+    },
+    {
+      "path": "PEFSL_C124/backbone_loader/backbone_loader_pytorch.py",
+      "size": 1351,
+      "sha256": "f9a61a2c5e63ad51dff48e48d835e53cf3c1d7c1f8ecca718bd1addca8df9971"
+    },
+    {
+      "path": "PEFSL_C124/backbone_loader/backbone_pytorch/model.py",
+      "size": 2251,
+      "sha256": "3a4419ec2835e90c4dc6df298f297a720190868508ae6bb0fe658f4c1bd91e7a"
+    },
+    {
+      "path": "PEFSL_C124/backbone_loader/backbone_pytorch/resnet9_12.py",
+      "size": 5149,
+      "sha256": "c8c776bcb2f665cacf6ded481edf34aa3fac99b3a34040eaaaaf99b724b44550"
+    },
+    {
+      "path": "PEFSL_C124/bbox_colour.py",
+      "size": 5148,
+      "sha256": "fbb8c0c449899248fe280e37ea73de596ab2e354da4dba3dde7f32aa86ed564b"
+    },
+    {
+      "path": "PEFSL_C124/bbox_demo.py",
+      "size": 457411,
+      "sha256": "526f5203c3c49f33dea5eb864f555f4d356def1cb99eccf764cb27ded6e2b308"
+    },
+    {
+      "path": "PEFSL_C124/bbox_dense.py",
+      "size": 27905,
+      "sha256": "6e34f807d479dbb66ac25365f90382f1edff53fb13fe1c89e3a72a6624639f0b"
+    },
+    {
+      "path": "PEFSL_C124/bbox_diagnostics.py",
+      "size": 3756,
+      "sha256": "7161b8f3743467f24a8f2de746e393ae85112b73687f265585a6ae6e83f0f49e"
+    },
+    {
+      "path": "PEFSL_C124/bbox_generic.py",
+      "size": 20063,
+      "sha256": "04b0b1aa2278ac361676a6e73d5cbebb6ba833f2a3c1fa2126da7f084ad5f242"
+    },
+    {
+      "path": "PEFSL_C124/bbox_identity.py",
+      "size": 16018,
+      "sha256": "fce649a1c4ac8bfabf53bff3baa21e469920126f65281d0fd5b4c16b16b58f69"
+    },
+    {
+      "path": "PEFSL_C124/bbox_learning.py",
+      "size": 9479,
+      "sha256": "7b7888509f50251253d7b00e808728ed375bfc4e99357eb42a6397d90185ddd0"
+    },
+    {
+      "path": "PEFSL_C124/bbox_localization.py",
+      "size": 24700,
+      "sha256": "c26da7a3488d52163536d36fbbf1145039d41e1eae9bfe81a76037f0ad196808"
+    },
+    {
+      "path": "PEFSL_C124/bbox_parts.py",
+      "size": 2027,
+      "sha256": "e33b17104dbdb807636c96070336c84fa96fd86f29b83289fa7936ca352a2288"
+    },
+    {
+      "path": "PEFSL_C124/bbox_runtime.py",
+      "size": 13669,
+      "sha256": "24e28d51dc404b6fc9626579829f859e6f9f88002010902c0d08960a207780df"
+    },
+    {
+      "path": "PEFSL_C124/bbox_search.py",
+      "size": 3603,
+      "sha256": "23cea1f0a3bbe2bd2aa35e5d8791ba6908148d2a0913fa29cde5883d61d54821"
+    },
+    {
+      "path": "PEFSL_C124/bbox_storage.py",
+      "size": 2899,
+      "sha256": "ff858240d65a2f9ec201063cd42aa9329af7d2d3bcb32e884b54b86bf6b7b343"
+    },
+    {
+      "path": "PEFSL_C124/bbox_tracking.py",
+      "size": 11743,
+      "sha256": "8a3016ed388c8a55a36d988cdbe42d44d80476e4b98f25bbf2d47848ee214c78"
+    },
+    {
+      "path": "PEFSL_C124/few_shot_model/few_shot_model.py",
+      "size": 10117,
+      "sha256": "77061f1f46beb2bb750e9fe2f0f0137620440aa36766456463d4ee1e6e4f4aa7"
+    },
+    {
+      "path": "PEFSL_C124/few_shot_model/numpy_utils.py",
+      "size": 1415,
+      "sha256": "d3b1a48de0a1e86b7875515d1df92bb7c286cc11af2c3058e7e085f315e0d525"
+    },
+    {
+      "path": "PEFSL_C124/install.bat",
+      "size": 710,
+      "sha256": "042118232711b9bcb1d64478b0590f4a88058084e66b9d78080e0526d72930a6"
+    },
+    {
+      "path": "PEFSL_C124/launch.py",
+      "size": 822,
+      "sha256": "0b723060f08139f0b29e4325b6e584fe713de890fc19120ec0e025c67e5ee941"
+    },
+    {
+      "path": "PEFSL_C124/requirements.txt",
+      "size": 63,
+      "sha256": "b495707a2f1e6bc11153c9723fac83e70ca44072bdef855143afa5142fac009b"
+    },
+    {
+      "path": "PEFSL_C124/resnet9_strided_16fmaps.pt",
+      "size": 782219,
+      "sha256": "aef6080a092f2c27530cdbe5f3d9a7bc92a706051edbb0434866f0cac97ac392"
+    },
+    {
+      "path": "PEFSL_C124/start.bat",
+      "size": 258,
+      "sha256": "ca167c835d3e5712ff68c92364eeec6ccee7878555e789ebe463629825cea6e3"
+    },
+    {
+      "path": "PEFSL_C124/verify_package.py",
+      "size": 637,
+      "sha256": "cb9a6163435935452dfe50211e9b08592d5059b2037d0d7d5a488f2ad83dc122"
+    },
+    {
+      "path": "README.md",
+      "size": 4376,
+      "sha256": "6838d0f6f44f5ca93b01c7458700e9133a3bb7de7205126d01c2bc04175c6bcc"
+    },
+    {
+      "path": "artifacts/pefsl_mix_plus_touch.bit",
+      "size": 4045688,
+      "sha256": "632f90e2de2bc5285f710f360ab334e7bfb0f849e4fbec4025cb4d736c93d7d3"
+    },
+    {
+      "path": "artifacts/pefsl_mix_plus_touch.hwh",
+      "size": 1049632,
+      "sha256": "e7fdbe117221984aab0392ddc992d6f9c11f32a97d6259e06d5b61feed5c4cb5"
+    },
+    {
+      "path": "conclusion/button.md",
+      "size": 2027,
+      "sha256": "fbcccc05b023bcbca316a1e449c93f94d1d2b6dd2977d858b0ce691113fd8b66"
+    },
+    {
+      "path": "conclusion/conclusion.md",
+      "size": 29677,
+      "sha256": "40e53d39bdf32ffc0d043ec7210100011bc0770d0a99fd3047f07aa21fab575c"
+    },
+    {
+      "path": "conclusion/flowcharts/01_system_overview.mmd",
+      "size": 2260,
+      "sha256": "4ca10450b29725301729f38276cdf398f4c30fd24c9753aab55ee934a5e48a53"
+    },
+    {
+      "path": "conclusion/flowcharts/01_system_overview.svg",
+      "size": 14383,
+      "sha256": "06b4b01885d287009c3533a01b061d2c5059b7ee52936b91c7ebf72aeb2c66e8"
+    },
+    {
+      "path": "conclusion/flowcharts/02_ab_learning_recognition.mmd",
+      "size": 2415,
+      "sha256": "061216d87514037f9e5c5e6caaefc41dd5ad366e8551747041e46241e341100c"
+    },
+    {
+      "path": "conclusion/flowcharts/02_ab_learning_recognition.svg",
+      "size": 15203,
+      "sha256": "3fcfb886ee0ec86cdfeef8fe196693e0244e5ef4e1a5e5ea98a517be7ad6f699"
+    },
+    {
+      "path": "conclusion/flowcharts/03_digit_operator_calculator.mmd",
+      "size": 2201,
+      "sha256": "cf05a0e8c048851ccc7235a43918e667d2af68a8c7cf68147022e16a750ae838"
+    },
+    {
+      "path": "conclusion/flowcharts/03_digit_operator_calculator.svg",
+      "size": 14071,
+      "sha256": "86a85ee4ab751176be575704811f7190c22016d4507d7d99c592a9ac51b664d9"
+    },
+    {
+      "path": "conclusion/flowcharts/04_startup_recovery_tools.mmd",
+      "size": 2678,
+      "sha256": "cd497ab594398d4644a5f7c56dd4136e0f9af1c8c2b70333b3bf0d3a729353df"
+    },
+    {
+      "path": "conclusion/flowcharts/04_startup_recovery_tools.svg",
+      "size": 16623,
+      "sha256": "551f40272b22b1b781e1c0aa0f3168ccae34ff6f68b415f28654667e2e913183"
+    },
+    {
+      "path": "conclusion/model.md",
+      "size": 6133,
+      "sha256": "1dae6d29f573f8c3023aac29bd47cf33159940b270524b56d9f5ea1919b29ced"
+    },
+    {
+      "path": "conclusion/module_flow.md",
+      "size": 15852,
+      "sha256": "9dc2d1ebc644a5a3605868581924e976b8c718fd51e999edfd9de1db6b28bb8b"
+    },
+    {
+      "path": "docs/hardware_reproduction.md",
+      "size": 3692,
+      "sha256": "44ce5d88b9acfba47097e9af1a360781d77d162de15eabf1af8e1b446330ff8c"
+    },
+    {
+      "path": "docs/package_validation.md",
+      "size": 2550,
+      "sha256": "bd1abfc7f7bbee66ffd645978c591250a0c4f40d6320571b6a2074e299f33417"
+    },
+    {
+      "path": "docs/software_reproduction.md",
+      "size": 9915,
+      "sha256": "308230af0a52617f9972db7971262dc102391ebb7aefcdb5903e2eb7a013fcf7"
+    },
+    {
+      "path": "ov5640_lcd/ov5640/__init__.py",
+      "size": 1781,
+      "sha256": "1e8297d8412ddf2135c0de69c0d5d983f70f186112bff8ae5eb6e4b3faabfb76"
+    },
+    {
+      "path": "ov5640_lcd/ov5640/ov5640.py",
+      "size": 9348,
+      "sha256": "4657ba5aff963c847f5397cdc28672211ef7a36fb1802c38b749fb1e44e7b172"
+    },
+    {
+      "path": "ov5640_lcd/ov5640/ov5640_af_config.py",
+      "size": 27804,
+      "sha256": "81fd4dfa43a0b72293522a36e0ceced0c5154462b12d7b1e680bb444de60e4de"
+    },
+    {
+      "path": "ov5640_lcd/ov5640/ov5640_config.py",
+      "size": 7941,
+      "sha256": "91e1d5413b9a0b69943b2fe854b00300b2c94283aefa415a301bb6a9e9445024"
+    },
+    {
+      "path": "ov5640_lcd/video2lcd/__init__.py",
+      "size": 1876,
+      "sha256": "98d57467e452272cd234279789bdb5549e7854025abbdfb798de15e0bb19d0fe"
+    },
+    {
+      "path": "ov5640_lcd/video2lcd/clocks.py",
+      "size": 13748,
+      "sha256": "a5b30b3814a6636ced74e194aa1933da678400a05ca982d3eec7feb9355e2f51"
+    },
+    {
+      "path": "ov5640_lcd/video2lcd/common.py",
+      "size": 4663,
+      "sha256": "e6bd68aea0393db5291b1fafa2fa462927376d41d5400901dc94529405b83665"
+    },
+    {
+      "path": "ov5640_lcd/video2lcd/constants.py",
+      "size": 1785,
+      "sha256": "f6769099fe712757d95784b7190f83aa1e3cc3b5a54679e8775947ab7895b70a"
+    },
+    {
+      "path": "ov5640_lcd/video2lcd/drm.py",
+      "size": 9740,
+      "sha256": "f4fda60a7b73e6e0e11550e6482e1d500c8a92cdf8e39d3d76c0fb86154f5ce1"
+    },
+    {
+      "path": "ov5640_lcd/video2lcd/dvi.py",
+      "size": 6382,
+      "sha256": "64fd58c6f92e7b69cafe04a14491098760c935feb98084494018d09e1ecaf626"
+    },
+    {
+      "path": "ov5640_lcd/video2lcd/frontend.py",
+      "size": 1928,
+      "sha256": "edbe63c7954f9e9109ebd0d1f401fa56b98f19e4ad20913f5ad69b33a0b125f8"
+    },
+    {
+      "path": "ov5640_lcd/video2lcd/hierarchies.py",
+      "size": 12375,
+      "sha256": "eb2d6785eafdb1741b6f581d361e6263c6c46123c6f7b8413a966848b78d9f3c"
+    },
+    {
+      "path": "ov5640_lcd/video2lcd/vdma.py",
+      "size": 20955,
+      "sha256": "bb6e6e073819d0c813207556aaba39d35b94e98e0a3c7e90fb6558980a0ac2dc"
+    },
+    {
+      "path": "plan/calculator_10_board.md",
+      "size": 6083,
+      "sha256": "2a7213073202b0afd61d22727eec144b4f54aa752d1de34ac2331de0861be85f"
+    },
+    {
+      "path": "plan/calculator_steps45_board.md",
+      "size": 10215,
+      "sha256": "dad782db402520b2d96ab445a6df726a04a4152219292763785a52ce56dadb7c"
+    },
+    {
+      "path": "plan/operator_steps123_board.md",
+      "size": 9686,
+      "sha256": "ee3441b1fee77607bcaaab1d830bd6534d8b507efe772fe444f9d70680e4a75f"
+    },
+    {
+      "path": "pynq_app/AB_R17_RESTORE.md",
+      "size": 3080,
+      "sha256": "73baaf78c10411f6115f142ab16117bdf08179cf467bc9f6201089a44b520bdd"
+    },
+    {
+      "path": "pynq_app/B_MODE_C124.md",
+      "size": 5202,
+      "sha256": "8d2267e20d6780c565a84a913c34af2d03f06bf471f981c025ea05d46b83861f"
+    },
+    {
+      "path": "pynq_app/KEYBOARD.md",
+      "size": 5936,
+      "sha256": "969bc6fede9df6e8a3979267f898aeb0e76c973b75847ee780ed40b684d6ee6a"
+    },
+    {
+      "path": "pynq_app/README.md",
+      "size": 19348,
+      "sha256": "56c9f1bdccf702567d0de65c7069e47ee5adb1afc4cec335f7fe8af0e0011a30"
+    },
+    {
+      "path": "pynq_app/__init__.py",
+      "size": 35,
+      "sha256": "2121d8ffb5281e46d134a9e800ffb0191b56b508a7ecffd08119437072ec80ed"
+    },
+    {
+      "path": "pynq_app/check_opencv.py",
+      "size": 2877,
+      "sha256": "436632acbf0566232db473e1a8cee705256f70248bc96e75ef5775f448af300e"
+    },
+    {
+      "path": "pynq_app/check_operator_support.py",
+      "size": 9385,
+      "sha256": "59d2bb12ada995e2ea957f1248767318f61fe5d29114c341a7d09e9f50f6a909"
+    },
+    {
+      "path": "pynq_app/digit_calculator.py",
+      "size": 5495,
+      "sha256": "b8c78ec7fb1b4506bc56e4249e7d238cf14d7c5dc69093f2b979968b1433dbc0"
+    },
+    {
+      "path": "pynq_app/digit_preprocess.py",
+      "size": 13783,
+      "sha256": "a29b68a9323c3c5bbfa7252d3bf6cf70165cb42ddf162b1c1a97fe846f3aa9c6"
+    },
+    {
+      "path": "pynq_app/digit_recognizer.py",
+      "size": 25527,
+      "sha256": "88f22156d4669e6b70710954b6e98596b05b915fc670d5cde17ee7508ea398a3"
+    },
+    {
+      "path": "pynq_app/digit_support/0/debug_binary_0000.png",
+      "size": 189,
+      "sha256": "adda8225d4bab1b7fe1cc05bd0941fbcede91e7b1468f62ab81e3d1e362849c2"
+    },
+    {
+      "path": "pynq_app/digit_support/0/debug_binary_0001.png",
+      "size": 189,
+      "sha256": "e1e8bde13b1dedec53c663475a9660bc00a5ccced229036aa484d05dffa0f9e8"
+    },
+    {
+      "path": "pynq_app/digit_support/0/debug_binary_0002.png",
+      "size": 193,
+      "sha256": "e85ec90f86d908477f4c0023bb3ddd8767f3bc9f76c1b9721a38eb07d80606e0"
+    },
+    {
+      "path": "pynq_app/digit_support/0/debug_binary_0003.png",
+      "size": 195,
+      "sha256": "fb870ae4f0913e8d4179df63e1a8651f557b33dc037ac020f055bba30efa16ff"
+    },
+    {
+      "path": "pynq_app/digit_support/0/debug_binary_0004.png",
+      "size": 194,
+      "sha256": "035d0c70a12312737ad21527d75106f17d0f70830f0ac9157f2d4364d0d3d1d1"
+    },
+    {
+      "path": "pynq_app/digit_support/1/debug_binary_0001.png",
+      "size": 160,
+      "sha256": "a0ae56c1ccaef8b31ece1c524de03e3558a6ad0ed8dc9036f9d7c2f556ddd9c0"
+    },
+    {
+      "path": "pynq_app/digit_support/1/debug_binary_0007.png",
+      "size": 156,
+      "sha256": "757766619b3c5f3e256baac59683023fc797aba7cc78512637f846e3c4cdd71e"
+    },
+    {
+      "path": "pynq_app/digit_support/1/debug_binary_0008.png",
+      "size": 163,
+      "sha256": "92fb4a7087f346147d35c45a1ca02c0371eabf7ab2a08385d241aa1be7068879"
+    },
+    {
+      "path": "pynq_app/digit_support/1/debug_binary_0009.png",
+      "size": 181,
+      "sha256": "193312da33fbe13c134a5da18b666bda11d5269ee42ee93955c40e78197552f8"
+    },
+    {
+      "path": "pynq_app/digit_support/1/debug_binary_0010.png",
+      "size": 161,
+      "sha256": "e8c4dc73650db504f5dad41d6aed6fbc05cd1c6d7faf4b65deeeecaa7157b125"
+    },
+    {
+      "path": "pynq_app/digit_support/2/debug_binary_0000.png",
+      "size": 169,
+      "sha256": "f4592ae8f9e9322ceb818f83558ffebbbade996d749bb15c63d0f26109f289c5"
+    },
+    {
+      "path": "pynq_app/digit_support/2/debug_binary_0001.png",
+      "size": 169,
+      "sha256": "261559cc8ea97881d557fb241198496b15e6bb74f9c31f0b6c5c78c98dd8f859"
+    },
+    {
+      "path": "pynq_app/digit_support/2/debug_binary_0002.png",
+      "size": 171,
+      "sha256": "4473efe68abd558548848903f64456d4a68fe05faf1d00f383ffd1c35566e273"
+    },
+    {
+      "path": "pynq_app/digit_support/2/debug_binary_0003.png",
+      "size": 164,
+      "sha256": "daa3331cf76fd31ce58ecedec008379c4e867a0174ff541b0e903ab6d4e2d16f"
+    },
+    {
+      "path": "pynq_app/digit_support/2/debug_binary_0004.png",
+      "size": 169,
+      "sha256": "46675d26e0b089b1f5b3ef8870a02d980f74e3a801ba3899778c70abe2422ddb"
+    },
+    {
+      "path": "pynq_app/digit_support/3/debug_binary_0011.png",
+      "size": 179,
+      "sha256": "c3b9fafbfbdffaddf69ea06400b269141d9f332e456b15672399b01d6ea9bde5"
+    },
+    {
+      "path": "pynq_app/digit_support/3/debug_binary_0014.png",
+      "size": 172,
+      "sha256": "6c6060aa56f137b0a44c8bc7f6961481c018c3028fd1272e48261befaeee383c"
+    },
+    {
+      "path": "pynq_app/digit_support/3/debug_binary_0016.png",
+      "size": 177,
+      "sha256": "2cc53262e084c292dfc2c5d9a53f16bfbaefbb9cf9288ac36a3bc7ba2a9cbbe4"
+    },
+    {
+      "path": "pynq_app/digit_support/3/debug_binary_0017.png",
+      "size": 180,
+      "sha256": "ee17963d2d7de7b4da8c1438998512d9d954c072f17047f9d4173b3ac8d497c7"
+    },
+    {
+      "path": "pynq_app/digit_support/3/debug_binary_0019.png",
+      "size": 176,
+      "sha256": "8601db8e93d19e248f7b7d5406ed1cd14a6f150ecf9216286feed5894994a783"
+    },
+    {
+      "path": "pynq_app/digit_support/4/debug_binary_0006.png",
+      "size": 192,
+      "sha256": "c361c30e6cdd57ab00233fe34d0a4bb28226f6e69f5d74910a58c02a41871b1c"
+    },
+    {
+      "path": "pynq_app/digit_support/4/debug_binary_0007.png",
+      "size": 203,
+      "sha256": "bfc8c5b63056bb881616b13f9b15b6e1472d766cc3061c8c9089b52c257ce3c6"
+    },
+    {
+      "path": "pynq_app/digit_support/4/debug_binary_0008.png",
+      "size": 189,
+      "sha256": "c28d8a895e6e44284860c3fb17b64b70fccbc9718aafaef6cdd91da39b7fec8c"
+    },
+    {
+      "path": "pynq_app/digit_support/4/debug_binary_0009.png",
+      "size": 188,
+      "sha256": "5da5d8ad0ec117ad33dc171a065f42dbf25c77e7630eb5d1b2c74612ab151cc0"
+    },
+    {
+      "path": "pynq_app/digit_support/4/debug_binary_0010.png",
+      "size": 191,
+      "sha256": "812196398d6d34fa75d46f1a6ec6910325d02ca13a7580646469f7106688e2fa"
+    },
+    {
+      "path": "pynq_app/digit_support/5/debug_binary_0000.png",
+      "size": 168,
+      "sha256": "e07fba320a53115ca5c31dd76976e3c00c73ef82e0f53e7c3f01a598d078544d"
+    },
+    {
+      "path": "pynq_app/digit_support/5/debug_binary_0001.png",
+      "size": 165,
+      "sha256": "e69ce57ae0c500799efd0f2577a35644c827c7c916aebce9d015765c572b1946"
+    },
+    {
+      "path": "pynq_app/digit_support/5/debug_binary_0003.png",
+      "size": 173,
+      "sha256": "72cf7fc44e32aac84b0a33a331c18b34c093f05212a156649b17b5e966f5d100"
+    },
+    {
+      "path": "pynq_app/digit_support/5/debug_binary_0004.png",
+      "size": 177,
+      "sha256": "9ba37010d94bfd0dc48a5226ea290d5cf5fab2686459691552e47baf7b9e982a"
+    },
+    {
+      "path": "pynq_app/digit_support/6/debug_binary_0000.png",
+      "size": 188,
+      "sha256": "733452efeadd0d5be8b3a021e4fbb3d06bcdffce2b10d0390b3c676ba2a3ba6e"
+    },
+    {
+      "path": "pynq_app/digit_support/6/debug_binary_0001.png",
+      "size": 179,
+      "sha256": "c024f3145eef0b38314c0f0c5500dd751051353b9ca5c66bee165c20ba290844"
+    },
+    {
+      "path": "pynq_app/digit_support/6/debug_binary_0002.png",
+      "size": 177,
+      "sha256": "dc89f1abf18576e37d4a998afe833763d8bb2238b9d583a6c6c5a2a85b24d7d2"
+    },
+    {
+      "path": "pynq_app/digit_support/6/debug_binary_0003.png",
+      "size": 181,
+      "sha256": "35560c55f83d4b85d3f44939679bc0d64e2d770c369c75a4966457b9525ac6b7"
+    },
+    {
+      "path": "pynq_app/digit_support/6/debug_binary_0004.png",
+      "size": 179,
+      "sha256": "2d620e6466f6585b2cbc6c8bf057a547a535cba34676d4f76801b97f3e877c88"
+    },
+    {
+      "path": "pynq_app/digit_support/7/debug_binary_0005.png",
+      "size": 173,
+      "sha256": "11669459cd816889a73b7adf6a9bc4dda66771c85b3a9a23f8541e3c198de335"
+    },
+    {
+      "path": "pynq_app/digit_support/7/debug_binary_0006.png",
+      "size": 170,
+      "sha256": "6ca9aad2d6d81a3e48d400fcedb577ba0b7e74f69ab615b0d2eb36934d24c30e"
+    },
+    {
+      "path": "pynq_app/digit_support/7/debug_binary_0007.png",
+      "size": 168,
+      "sha256": "1d17c3da0dc4b0c5e4769942a8164ec224a27147dd476b921fb97105da55ab86"
+    },
+    {
+      "path": "pynq_app/digit_support/7/debug_binary_0008.png",
+      "size": 164,
+      "sha256": "27076ac91980da91cdcefcb847fbde40d62332d3ed6ced7fbfdccdc8bd669593"
+    },
+    {
+      "path": "pynq_app/digit_support/7/debug_binary_0009.png",
+      "size": 167,
+      "sha256": "14db13b047f64345c03bb18805d0724f99892542363e4be89737e02ec4a9bfa8"
+    },
+    {
+      "path": "pynq_app/digit_support/8/debug_binary_0012.png",
+      "size": 197,
+      "sha256": "f21fc626c982e964800adbbed443f62629ae47bb390e3c26dc0c350874adbef9"
+    },
+    {
+      "path": "pynq_app/digit_support/8/debug_binary_0013.png",
+      "size": 189,
+      "sha256": "ac93ba1e29b9f5b0795aaddeec981fafa17871e6da908473f2e087cfec9c6064"
+    },
+    {
+      "path": "pynq_app/digit_support/8/debug_binary_0014.png",
+      "size": 172,
+      "sha256": "5747e4a3c7982d0f3fe1fb0a6245aa48d3e8ab427f9c86a8dd3ae44b8e3ce28e"
+    },
+    {
+      "path": "pynq_app/digit_support/8/debug_binary_0015.png",
+      "size": 192,
+      "sha256": "a360be58b8ea5f20ae243198ff1c859a1fe3ad9c0bb4f5ce5fad46888e87efcf"
+    },
+    {
+      "path": "pynq_app/digit_support/8/debug_binary_0016.png",
+      "size": 198,
+      "sha256": "709c044919cc7ce9279df57760838c21961424e8dfb40e4a7e7f5adddb7ad885"
+    },
+    {
+      "path": "pynq_app/digit_support/9/debug_binary_0020.png",
+      "size": 193,
+      "sha256": "1f3562b0558359e48a82831c2a79b0b5efa7de9fd5b6f92369a401e4eaa80b4e"
+    },
+    {
+      "path": "pynq_app/digit_support/9/debug_binary_0021.png",
+      "size": 177,
+      "sha256": "283dd97d2931dfc204889e581fb46c800564d10bce7018ec5c39a02fdc4086d8"
+    },
+    {
+      "path": "pynq_app/digit_support/9/debug_binary_0022.png",
+      "size": 173,
+      "sha256": "c3dabead0d11ce76faeb2c5d5fb1608fc6abe3303128f7f628df62bfc142ec71"
+    },
+    {
+      "path": "pynq_app/digit_support/9/debug_binary_0023.png",
+      "size": 179,
+      "sha256": "49c894b36413cf655089f7d7e82c47f5b95cf21d79ec8068cbf135de5601f822"
+    },
+    {
+      "path": "pynq_app/digit_support/9/debug_binary_0024.png",
+      "size": 173,
+      "sha256": "d80e3e4354f791e9d21097bd49026125714f50dc7d96d8bd753ed1dbaebfaa5b"
+    },
+    {
+      "path": "pynq_app/digit_support/README.md",
+      "size": 1024,
+      "sha256": "c4ca273fcd8a228cea01b5552cc7b651e538f8f846e82f52c8c7e221e609fa43"
+    },
+    {
+      "path": "pynq_app/digit_support_manifest.json",
+      "size": 986,
+      "sha256": "938cf2ce31e90a876783c6cd4a8b8d17770753a745aa978e41b072e24454a00d"
+    },
+    {
+      "path": "pynq_app/digit_support_r17.npz",
+      "size": 11822,
+      "sha256": "2d0ec2b461de2a061effc01786b9a7262c1893385df3533bd00ff666b1f331e3"
+    },
+    {
+      "path": "pynq_app/keyboard_validate.py",
+      "size": 2556,
+      "sha256": "d6c1bbac2cdf62b54a868e92588a4dacd321efa48c1883c8699afc80daed6ffe"
+    },
+    {
+      "path": "pynq_app/operator_support/div/debug_binary_0022.png",
+      "size": 148,
+      "sha256": "18a3d2dffee39b398ee102394704a47d98dd74ca1f18acf45e52073a0e9ec693"
+    },
+    {
+      "path": "pynq_app/operator_support/div/debug_binary_0023.png",
+      "size": 140,
+      "sha256": "02a76afe3bcdb1a730308b2947b2820b2d38cf354e13c83f7cdb0c7d2b381d15"
+    },
+    {
+      "path": "pynq_app/operator_support/div/debug_binary_0024.png",
+      "size": 151,
+      "sha256": "f9412ef90ad4f01a91a5ae61cf0e0933e27b093b9f06c270692ccf95e589a932"
+    },
+    {
+      "path": "pynq_app/operator_support/div/debug_binary_0025.png",
+      "size": 153,
+      "sha256": "dd9f80c135b4311204caba4e61b54f5413a5b1297ba0ec60a301753e1a65a84e"
+    },
+    {
+      "path": "pynq_app/operator_support/div/debug_binary_0026.png",
+      "size": 143,
+      "sha256": "c1d21c8bd68b5d5e38986aa45059b7b550d0a5b9ee4d056ed2695780b05fc9bc"
+    },
+    {
+      "path": "pynq_app/operator_support/mul/debug_binary_0014.png",
+      "size": 170,
+      "sha256": "78dc720bd0320aa7ceaf3c39f1dd3572521965d0fb799b64cc7d9c70e7d0b065"
+    },
+    {
+      "path": "pynq_app/operator_support/mul/debug_binary_0015.png",
+      "size": 169,
+      "sha256": "ce1702d542a74ae7dee7a88580970df8b1f933bbeb2bd1bf820a8e6362f6038f"
+    },
+    {
+      "path": "pynq_app/operator_support/mul/debug_binary_0016.png",
+      "size": 168,
+      "sha256": "59de9568724a821e4ea8fbe332d57467f7addc8381a83e8ddf715152d91ec122"
+    },
+    {
+      "path": "pynq_app/operator_support/mul/debug_binary_0017.png",
+      "size": 164,
+      "sha256": "0a842be8b3aba5383932743e98c80989feeb6723307ad601ae57cab351b8479c"
+    },
+    {
+      "path": "pynq_app/operator_support/mul/debug_binary_0018.png",
+      "size": 160,
+      "sha256": "d7682e956f66158ab0a03cef735df2a9d73700cb5dac83dfc98f9bd097ca809a"
+    },
+    {
+      "path": "pynq_app/operator_support/plus/debug_binary_0006.png",
+      "size": 166,
+      "sha256": "ecfa1c51f2ab54caeedc55e6d20e6f9ee6a291b39a465e02dc145677202ed99b"
+    },
+    {
+      "path": "pynq_app/operator_support/plus/debug_binary_0007.png",
+      "size": 162,
+      "sha256": "6ffd2db221eed8e2d66a48e5f4e5e995028626cad510eed9f566cdf59fc4138b"
+    },
+    {
+      "path": "pynq_app/operator_support/plus/debug_binary_0008.png",
+      "size": 163,
+      "sha256": "f9decdebd26d6ffc7ebe3b56f0f9195171601e3e89cf17dd50f1caeed2d8ebc0"
+    },
+    {
+      "path": "pynq_app/operator_support/plus/debug_binary_0027.png",
+      "size": 173,
+      "sha256": "82bd1127f958a4bd68dbe9933d708b145e713b2694bf8d239f49f063e1584e46"
+    },
+    {
+      "path": "pynq_app/operator_support/plus/debug_binary_0028.png",
+      "size": 163,
+      "sha256": "584ef619cb2429133d7d7697e7805195ad03bda8d3e624a8ab80dd56fcef408d"
+    },
+    {
+      "path": "pynq_app/operator_support/sub/debug_binary_0004.png",
+      "size": 138,
+      "sha256": "f5ec1a90e49e5754c2998362ecd5233d24aa6fd84849119ccdf6d8c31e878247"
+    },
+    {
+      "path": "pynq_app/operator_support/sub/debug_binary_0011.png",
+      "size": 133,
+      "sha256": "a25195ff5e92f74de50936e0d2cceaf7ea83c445d50384656f0a9aef47bcf839"
+    },
+    {
+      "path": "pynq_app/operator_support/sub/debug_binary_0012.png",
+      "size": 130,
+      "sha256": "fcdff49f7fb8fbfd2b6e114a3ec030511b9cfd712a7b3be112d200ddcd09e16a"
+    },
+    {
+      "path": "pynq_app/operator_support/sub/debug_binary_0013.png",
+      "size": 133,
+      "sha256": "f304c92b0fb504b1a631d908c241ec2d926784beb85ecbf4fc8fe78b620f7d65"
+    },
+    {
+      "path": "pynq_app/operator_support/sub/debug_binary_0014.png",
+      "size": 132,
+      "sha256": "e46ebfdb7ffb4ffb5868fe3944a514ebd1dcb37023d612730cd48537c6d4a5e2"
+    },
+    {
+      "path": "pynq_app/operator_support_manifest.json",
+      "size": 5529,
+      "sha256": "88c59b1642fc779cadcc14541d0de5947f559559dddf2deacb1a71317eaab44b"
+    },
+    {
+      "path": "pynq_app/pefsl_bmode.py",
+      "size": 5842,
+      "sha256": "99a35ce2d599c4ec59fdbaaf34660acc8915062cf5f970efefebf303a7d5435a"
+    },
+    {
+      "path": "pynq_app/pefsl_identity.py",
+      "size": 7339,
+      "sha256": "481dd5dd68e369805ddb609302ba554614bea929583c6f5aeb37cdd9828daf8c"
+    },
+    {
+      "path": "pynq_app/pefsl_proposals.py",
+      "size": 2638,
+      "sha256": "398537189585cf83b6da08f12e1e64d5f353837f057e1d830c7c5027f71fb823"
+    },
+    {
+      "path": "pynq_app/pefsl_scan.py",
+      "size": 13116,
+      "sha256": "e72bae0462a2931762cd8f21cf97aad55bbaf8f43daa0ec96c7cf8d03bf08d35"
+    },
+    {
+      "path": "pynq_app/pefsl_touch_ui.py",
+      "size": 93605,
+      "sha256": "ff532ab12a9a691cf6a8c7e3588f578b1b2ce8e3737363948deec8621e8c0df3"
+    },
+    {
+      "path": "pynq_app/pynq_bbox_demo.py",
+      "size": 52654,
+      "sha256": "5d027ab9903002d5677c32a35713d266b5af55bca7db5fbb3f80f29cdc25730c"
+    },
+    {
+      "path": "pynq_app/test_b_identity.py",
+      "size": 3385,
+      "sha256": "03e609ce43567beb1f46bb98dd61ee22b1fb6bfa00a296af4c43d982a2f1df56"
+    },
+    {
+      "path": "pynq_app/test_b_proposals.py",
+      "size": 1587,
+      "sha256": "a2b0014e2bb6b661544fc18b826e25c6e26bdc637e7433ba3274f27132e64359"
+    },
+    {
+      "path": "pynq_app/test_bmode.py",
+      "size": 9394,
+      "sha256": "bc61b4298682cd387ab98eada1390826f0d9c695bca1d03e7998a96dbf70fef9"
+    },
+    {
+      "path": "pynq_app/test_calculator_ui.py",
+      "size": 16466,
+      "sha256": "9f40818b247803d51d45a2b33b6807b8cb33e745fbf15060227e7daca661ff4a"
+    },
+    {
+      "path": "pynq_app/test_digit_calculator.py",
+      "size": 10127,
+      "sha256": "e69c2d5e5268e53715d727cc8bd990ca08d6c1341151bbccbb02706105cc1990"
+    },
+    {
+      "path": "pynq_app/test_keyboard_dispatch.py",
+      "size": 7479,
+      "sha256": "0228c1c7304321b53d79b26e3ed9ead2e38b342c8632ff822ba21634b07a4d8d"
+    },
+    {
+      "path": "pynq_app/test_keyboard_ui.py",
+      "size": 21225,
+      "sha256": "e5ac60480af089edd1f67a0ed34cb2532a0055e0ca983166c5f613ff9fb482b2"
+    },
+    {
+      "path": "pynq_app/test_operator_cache.py",
+      "size": 10949,
+      "sha256": "8aec7b504e42b0fcf58830ac462413be9fe065863e877645b0268202d8d3305a"
+    },
+    {
+      "path": "pynq_app/test_operator_mode.py",
+      "size": 10561,
+      "sha256": "ad6317172a19d4fd93971d03f1ac86a82a3c9bb2345a1a13a1ab760b0ff2b682"
+    },
+    {
+      "path": "pynq_app/test_usb_keyboard.py",
+      "size": 16085,
+      "sha256": "3008aeba86db0d69c5b8d734c4a239fb7e5581b614fc7326bbe0a1651a440ac8"
+    },
+    {
+      "path": "pynq_app/usb_keyboard.py",
+      "size": 16217,
+      "sha256": "67c14fd907f1e4b79263676661de75e6e5eb01557976dc187b9167656c35e9fc"
+    },
+    {
+      "path": "scripts/rebuild_hardware.tcl",
+      "size": 3156,
+      "sha256": "5ce327a6f069943aff09b844e92d2e5614dbc6d784c984bfc56b6a7e5f0bfd0d"
+    },
+    {
+      "path": "skill/pc-engineering/README.md",
+      "size": 4171,
+      "sha256": "244010f930c423ceabadba444a7831b1db0ed56c03e1b8f9e6a4520091a34769"
+    },
+    {
+      "path": "skill/pc-engineering/SKILL.md",
+      "size": 2123,
+      "sha256": "bde6bfd77f6ebf574a3dbce2fbf69f8377e5ba583fec7dcb250f1350e22feddd"
+    },
+    {
+      "path": "skill/pc-engineering/case_study.md",
+      "size": 2140,
+      "sha256": "f88d9bb8495bff67e04b0c56fe1e48e91660dad53e7b112311a5d838690e1240"
+    },
+    {
+      "path": "skill/pc-engineering/evidence/README.md",
+      "size": 1335,
+      "sha256": "9fb12f6ebce9f864cef74d8d7ec56293c4261877d15c5217e59cf54d16a7e145"
+    },
+    {
+      "path": "skill/pc-engineering/evidence/evaluation_summary.csv",
+      "size": 1960,
+      "sha256": "7e0d2b8fc7d733db6bcb0f9b4d78e4717d49cb911a70270be017a01204b1e77b"
+    },
+    {
+      "path": "skill/pc-engineering/evidence/source_hashes.json",
+      "size": 2443,
+      "sha256": "4510263d758007eecb123b636aebac76f518bd68cbd2fb9cef0675eb3642a96f"
+    },
+    {
+      "path": "skill/pc-engineering/prompt.md",
+      "size": 1370,
+      "sha256": "b5499ae5c452b77242693a289e15ef90d4476f61b1465278cd106b238d607efe"
+    },
+    {
+      "path": "skill/pc-engineering/result_template.md",
+      "size": 1290,
+      "sha256": "3e2f8133d4f02bec13964707183c6780901925c3a122d4f3c6cdf436d1d850a8"
+    },
+    {
+      "path": "skill/pynq-engineering/README.md",
+      "size": 300,
+      "sha256": "317147758e5b81e0eedec5b4cff725f58e11918c7d152913f9958e7fac7d74a0"
+    },
+    {
+      "path": "skill/pynq-engineering/SKILL.md",
+      "size": 5989,
+      "sha256": "a5b2647825909a335b7249cb694ba49ffdc05bc71a43f5d280f075b4530ca3a6"
+    },
+    {
+      "path": "skill/pynq-engineering/agents/openai.yaml",
+      "size": 312,
+      "sha256": "c96e61a7bf0d4260134de03c62dc09f915e7997f64c62176611c031016304ba4"
+    },
+    {
+      "path": "skill/pynq-engineering/references/accelerator-application.md",
+      "size": 3543,
+      "sha256": "f8f0ecf65f58e89b828e0a957d23c4b27f49e5ee4cf0ec4febcc282b677dfcd0"
+    },
+    {
+      "path": "skill/pynq-engineering/references/board-overlay-usb.md",
+      "size": 4492,
+      "sha256": "9e7149d3b46b127d6db90e3c239a35a8900d66dc68c6aa4ac7a40cf015d27755"
+    },
+    {
+      "path": "skill/pynq-engineering/references/iic-video-runtime.md",
+      "size": 5127,
+      "sha256": "d991a67c9ea4968987619211892ffc9806aacd41a89694bd7a022d94116a342b"
+    },
+    {
+      "path": "skill/pynq-engineering/references/pefsl-7020-case.md",
+      "size": 5973,
+      "sha256": "a4c81d895154b8260b47b2a65dc07d954762099f558b19afbf133480ca9070ae"
+    },
+    {
+      "path": "skill/pynq-engineering/scripts/collect_pynq_state.py",
+      "size": 13280,
+      "sha256": "eb0db4b2d8bd103d6a5b096ee65ff31ada8c6c551dde858302cda58aa0a26f51"
+    },
+    {
+      "path": "sources/tcu/bram_dp_192x2048.v",
+      "size": 573,
+      "sha256": "8ab5a41c2d6c0d0ff83475150582afddf6b20514b6fa44ccf9172250b6818d86"
+    },
+    {
+      "path": "sources/tcu/bram_dp_192x8192.v",
+      "size": 573,
+      "sha256": "83c5a30824ace06c819cf631a9520c66a491e21a109e7277182d6fb6d6ae55dd"
+    },
+    {
+      "path": "sources/tcu/top_custom_perf.v",
+      "size": 1392982,
+      "sha256": "cd7174f19df6d24caad1ac1e2a547f3abd6dfbd15e549ff63a982d5f89eb7aba"
+    },
+    {
+      "path": "sources/touch_reference/i2c_dri.v",
+      "size": 21269,
+      "sha256": "a8a468b48b7f8ff023e9fd0ccd54d47513209d5fa123d00b28dfd8204b54d2f1"
+    },
+    {
+      "path": "sources/touch_reference/touch_dri.v",
+      "size": 20475,
+      "sha256": "e64e42eadfc0918034be8c20c8425946899f3182923407c044b8ceb0fd7985ef"
+    },
+    {
+      "path": "sources/touch_reference/touch_top.v",
+      "size": 4159,
+      "sha256": "130f52f47316cb037b9a253b45fe9635cfd2128a28d2ea9e7fee5e5c2b6a277d"
+    },
+    {
+      "path": "tcu_deploy/README.md",
+      "size": 2151,
+      "sha256": "276286c2fa8f7ebd79de6c91272889282aba8e763ca55a99905526e2c44bac62"
+    },
+    {
+      "path": "tcu_deploy/__init__.py",
+      "size": 42,
+      "sha256": "de0268b72c6a9b806ebc909d7aada0a4d472053d72858f3be0ab35eef6756b91"
+    },
+    {
+      "path": "tcu_deploy/resnet9_strided_16fmaps_onnx_custom_perf.tdata",
+      "size": 468912,
+      "sha256": "581e8f37349aabb87ae911d3852088f49a8498d9c303e1dc0fc2454b669cc435"
+    },
+    {
+      "path": "tcu_deploy/resnet9_strided_16fmaps_onnx_custom_perf.tmodel",
+      "size": 638,
+      "sha256": "a62241193cf158a4df309f67a457353fcc604ffeaa49bdaabe449234d2e15b64"
+    },
+    {
+      "path": "tcu_deploy/resnet9_strided_16fmaps_onnx_custom_perf.tprog",
+      "size": 798480,
+      "sha256": "a2179041ab2f80fe05d33e997f88abad44c5854c1cae12db8220037b0114c011"
+    },
+    {
+      "path": "tcu_deploy/tcu_bbox_backend.py",
+      "size": 7780,
+      "sha256": "89efe50d08a10054e3cfc1dcfa11f06637c446283c28a03f12e4550b46c5ccee"
+    },
+    {
+      "path": "tcu_deploy/tcu_feature_validate.py",
+      "size": 4818,
+      "sha256": "e4d338be4fcee5c19e6b3841c8f89bd94fcc061c207ca6a47a832b372c6bc6d7"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/LICENSE",
+      "size": 574,
+      "sha256": "3d138b20ff7ef5acf0d9cdf82e231ebc5c5f8bd5bb741d5953cea939f15bd94c"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/__init__.py",
+      "size": 85,
+      "sha256": "2f22f820cb42ad00e453bbbb5310952a46f9713b58b926c6014652c09e9ce82f"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/allocator.py",
+      "size": 3853,
+      "sha256": "f0d5aba9c172abd63030f286d32293a2e71a33adab51a73058373d0a649b170d"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/architecture.py",
+      "size": 1863,
+      "sha256": "469854660cd7c1e1447daa239081f6b9e1e91d1c036d17625e4f42b5c83aed12"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/axi.py",
+      "size": 600,
+      "sha256": "85a2558b87a3260c5fe0c48333d512b505faa405bc9a2128d6c7b7f6cd1955db"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/config.py",
+      "size": 497,
+      "sha256": "1140ae5f3fcaf4c48219e26182d11346f3727829cf642ef760eac5464fb40d43"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/data_type.py",
+      "size": 1273,
+      "sha256": "4484ac9685a8f20865c714b10dae9d8eae74a13fc43c8382011f8ccfc8fe2a7d"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/driver.py",
+      "size": 14569,
+      "sha256": "2c863bd4f415996e1d361949fb3fe52fa8cbddc9d28112e3cfd3492ae134813d"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/instruction.py",
+      "size": 4911,
+      "sha256": "8c4fb2e68cfe953002f3fb8f645914b116ed2ee04afbff7947e0027901c7cc2a"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/mem.py",
+      "size": 3922,
+      "sha256": "737da2b949c47f8eda80405aa60eeba8e7eaf4da1b56971e0f8ae8baadcac8d7"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/model.py",
+      "size": 1273,
+      "sha256": "80015dcd55600e78aa341f9e56eea8fa7b1ee4d71266f5a7b1656bb957b91ced"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/platforms.py",
+      "size": 219,
+      "sha256": "bc9aba2c57d317d61df8707e944b9b05e78b0badec72ef650e709ea42ee7d777"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/stream.py",
+      "size": 8321,
+      "sha256": "2688793f33a895bbf5b73bc349991a4e2067c8622280b8ecb971e9a5c20f41b7"
+    },
+    {
+      "path": "tcu_deploy/tcu_pynq/util.py",
+      "size": 1561,
+      "sha256": "54fca8e258e4f1bfdbb00f5cb3867f0b7903dbcb6b14bcc88d3a58f70195491e"
+    },
+    {
+      "path": "tools/verify_reproduction.py",
+      "size": 1862,
+      "sha256": "da56c34094de05b255c50dca72571a2999d1fb12f8b31393bf50f93a1bd2963e"
+    },
+    {
+      "path": "touch_deploy/README.md",
+      "size": 2228,
+      "sha256": "cede4d50a6ee1782443cb0d572d325866630bd2d2473989b9d839ce417163ba6"
+    },
+    {
+      "path": "touch_deploy/__init__.py",
+      "size": 282,
+      "sha256": "6cc950cad83ef3ea76f062262e65c0e9fbebb1af0b860957b088211a24a42183"
+    },
+    {
+      "path": "touch_deploy/test_touch_driver.py",
+      "size": 3363,
+      "sha256": "840f8d099996fb7870c5bf315d0c4b1518aaf51ff7b7a8d4dee37c6a8e1f6884"
+    },
+    {
+      "path": "touch_deploy/touch_driver.py",
+      "size": 24991,
+      "sha256": "8c45cec95a3e330c85c4496d4625fa69f4638d4f64ee68f2ccad8340e486b301"
+    },
+    {
+      "path": "touch_deploy/touch_iic_validate.py",
+      "size": 4517,
+      "sha256": "36e490744582500b973a77257376076304a32ec1a7e3bfca9dc93a4bf76e4a78"
+    },
+    {
+      "path": "usb_host_fix/IMAGE_USB_HOST.ub",
+      "size": 5892776,
+      "sha256": "b72b9ee15590152d88239b17887ba5aa0b8699e4fe53cbebcac406beea4ff3aa"
+    },
+    {
+      "path": "usb_host_fix/README.md",
+      "size": 3532,
+      "sha256": "7f583c127cf37960a5742d557debb8d3d385aeabcc166149c9fd493d8fd30d43"
+    },
+    {
+      "path": "usb_host_fix/apply_usb_host_fix.py",
+      "size": 5489,
+      "sha256": "97348c06e44b860e1f6b1f5b738adee48a4ab941ed64b8828a29c060eefafc19"
+    },
+    {
+      "path": "usb_host_fix/candidate_usb_host.dtb",
+      "size": 19646,
+      "sha256": "6e9a425dafc6e1db0e622b4b6c39135284d554c51131e997000dbb8675e0074c"
+    },
+    {
+      "path": "usb_host_fix/manifest.json",
+      "size": 552,
+      "sha256": "5d211d82ad98092c565e1224e8830996c26bec5a3dbed8aad5655301c20c9d2d"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/constrs_1/new/base.xdc",
+      "size": 4829,
+      "sha256": "8b97ec27d6ccf5ac6bcefc94927996bbabf690f990c58bd788ad042fca1f96be"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/base.bd",
+      "size": 269183,
+      "sha256": "c433fe1f50dd16f231e662de9766da5e67fa22334fbf58e5331f06f69f1af903"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_dma_0_0_3/base_axi_dma_0_0.xci",
+      "size": 83300,
+      "sha256": "1c08323e5f6aca0b0ae6a6a1a5a16382ad36178a6e42a5db809dd5dcd100fa48"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_dynclk_0/base_axi_dynclk_0.xci",
+      "size": 18859,
+      "sha256": "421fddb807cbee44d958af2cc70d1a137a34d33401e1dfdfb8f256ac66637398"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_gpio_0_0/base_axi_gpio_0_0.xci",
+      "size": 25351,
+      "sha256": "9ed96ebc48803a415ea1da491698f4c4db565acd0ac16652353bc802156b8729"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_intc_0_0/base_axi_intc_0_0.xci",
+      "size": 28972,
+      "sha256": "3dce620aba46de42cc93cde50f1e03fbcb4391c4f1ddc24c253abe4d1934b0ca"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_interconnect_0_0/base_axi_interconnect_0_0.xci",
+      "size": 35837,
+      "sha256": "8d72e60121b57798266b3c2aaa0fb805748a2ac74eca3e1ffe53f2a2d3d0f80d"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_interconnect_0_imp_m00_regslice_0/base_axi_interconnect_0_imp_m00_regslice_0.xci",
+      "size": 35187,
+      "sha256": "afbc130e2f9cee6fdc0b245dd775c87946ef29ec7c011e48613309b641e2fe78"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_interconnect_0_imp_m01_regslice_0/base_axi_interconnect_0_imp_m01_regslice_0.xci",
+      "size": 35183,
+      "sha256": "597d712e870933084536f563e623d1d0629f63d847e6f55bc469d0b61e3cad77"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_interconnect_0_imp_m02_regslice_0/base_axi_interconnect_0_imp_m02_regslice_0.xci",
+      "size": 35161,
+      "sha256": "ec08192fc7cc587ca11da32809ba55f90773bed3bf2489d1889b7013d98c6452"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_interconnect_0_imp_m03_regslice_0/base_axi_interconnect_0_imp_m03_regslice_0.xci",
+      "size": 35183,
+      "sha256": "1b397ed12b9f7ab67e40ef111e48c51312839ce6224b8ee5d6ca04195531029f"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_interconnect_0_imp_s00_regslice_0/base_axi_interconnect_0_imp_s00_regslice_0.xci",
+      "size": 35371,
+      "sha256": "dccd68ea388735cd2b99333bfc4751de81261e020b431c05c1c5cb6ce6b4ae29"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_interconnect_0_upgraded_ipi_imp_xbar_0/base_axi_interconnect_0_upgraded_ipi_imp_xbar_0.xci",
+      "size": 238317,
+      "sha256": "aa92d9038f129cbb5ef51aad7d476ca4201de94ad9c2ca30c12ea86155d3d249"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_mem_intercon_0/base_axi_mem_intercon_0.xci",
+      "size": 35617,
+      "sha256": "176b8549f030b6391ac30a19720841fd9939dbc678fc1e57f45b9aa3f95fe75c"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_mem_intercon_imp_auto_cc_0/base_axi_mem_intercon_imp_auto_cc_0.xci",
+      "size": 31286,
+      "sha256": "1f5bf5a31f72cffae2e93f7c9c9a5ceda9738d5005315fdf3ffaca6ebd7ea31f"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_mem_intercon_imp_auto_pc_0/base_axi_mem_intercon_imp_auto_pc_0.xci",
+      "size": 26617,
+      "sha256": "6771506a621742f3f6f8b8d116a8e1561c798cc792fd2e96faa3827b440ff0bc"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_mem_intercon_imp_auto_pc_1/base_axi_mem_intercon_imp_auto_pc_1.xci",
+      "size": 25822,
+      "sha256": "0252407e1d878e9501b377cc469c47d3b056e47ffadeac7f07b3d087cdcc0e67"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_mem_intercon_imp_auto_us_0/base_axi_mem_intercon_imp_auto_us_0.xci",
+      "size": 25493,
+      "sha256": "266bc8ba4e290b046638c7bdc1fb545f9fff9662f31e565cd417f4da79b2db31"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_mem_intercon_upgraded_ipi_imp_xbar_0/base_axi_mem_intercon_upgraded_ipi_imp_xbar_0.xci",
+      "size": 229834,
+      "sha256": "efff712fe391e6f09407ec09e2e5120ef2294a9311a213701ff0fd8eefe0838a"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_axi_vdma_0/base_axi_vdma_0.xci",
+      "size": 139808,
+      "sha256": "2bf0bc901fba0c7f710963ed459a5f52d98afa2741c7ab525973740f7c9219b7"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_cam_iic_0/base_cam_iic_0.xci",
+      "size": 47812,
+      "sha256": "5fe53863eb799e84efbbddefe324dfff0d7c22c00761992df4ef367674359789"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_cmos_capture_data_0_0/base_cmos_capture_data_0_0.xci",
+      "size": 3798,
+      "sha256": "a5302104d63b9db3728f017f37f88ecadf512b106c520fc2d1096e23eee4ab3c"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_concat_interrupts_0/base_concat_interrupts_0.xci",
+      "size": 34442,
+      "sha256": "32d51b9608301e9774a7f398e53ac6a3d8a45a14eb52e137090a8e8adbe5ef84"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_proc_sys_reset_pixelclk_0/base_proc_sys_reset_pixelclk_0.xci",
+      "size": 12707,
+      "sha256": "42aed7e89e900cc07cabc806b8f62803cb94489a80f0cefb1a7b650164363d75"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_0/base_ps7_0_0.xci",
+      "size": 168046,
+      "sha256": "4d505ffbcf1cf87461050eb792bf3e3902d4ccbe5828dded3e92f4cf6a4edd43"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_axi_periph_0/base_ps7_0_axi_periph_0.xci",
+      "size": 35821,
+      "sha256": "58bf8c6749088651fd6f2e23f9fb1ce7e7414190ab444c2b6915c0d03e417ead"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_axi_periph_imp_auto_pc_0/base_ps7_0_axi_periph_imp_auto_pc_0.xci",
+      "size": 29987,
+      "sha256": "8275103e79089c3fe77ad355dc47df3155d1c556b9e6fe7e12f515965867abc7"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_axi_periph_imp_m00_regslice_0/base_ps7_0_axi_periph_imp_m00_regslice_0.xci",
+      "size": 35169,
+      "sha256": "b0b67eba2cc22222df83727ab23535a8a888a4e7d481ce5f3cd71c1c07895851"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_axi_periph_imp_m01_regslice_0/base_ps7_0_axi_periph_imp_m01_regslice_0.xci",
+      "size": 35144,
+      "sha256": "15d097c9a8b96ba9e63b2eb04e58705c495eb4d07b155b73a9c6072ae5536403"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_axi_periph_imp_m02_regslice_0/base_ps7_0_axi_periph_imp_m02_regslice_0.xci",
+      "size": 35167,
+      "sha256": "fa58965a1a1bcf9e5ffeeee267e6608cf45270e8c70659aa4e11275609fc5778"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_axi_periph_imp_m03_regslice_0/base_ps7_0_axi_periph_imp_m03_regslice_0.xci",
+      "size": 35566,
+      "sha256": "303e58cbf97106c6fb772e92643939b631f44f36e32084efb16055699c1e9bd3"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_axi_periph_imp_m03_regslice_0_1/base_ps7_0_axi_periph_imp_m03_regslice_0.xci",
+      "size": 35160,
+      "sha256": "1ba9548c83fe2047521492320808dc7d3b89cbd990636be53d67f932517addf5"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_axi_periph_imp_m04_regslice_0/base_ps7_0_axi_periph_imp_m04_regslice_0.xci",
+      "size": 35182,
+      "sha256": "4b136a26bcfe8a5c57f0134071708a7b1a0cd54a211f366f3de085bef8c66bb7"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_axi_periph_imp_m05_regslice_0/base_ps7_0_axi_periph_imp_m05_regslice_0.xci",
+      "size": 35182,
+      "sha256": "f900d9e496239c014d1f0a5e2241f404ca02ff5a177e8f0ce0b32c490b28820d"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_axi_periph_imp_m06_regslice_0/base_ps7_0_axi_periph_imp_m06_regslice_0.xci",
+      "size": 35182,
+      "sha256": "4161c145e4040c4849c64fede47523d5daf9ef231206fc7c652223a63bc90e9c"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_axi_periph_imp_s00_regslice_0/base_ps7_0_axi_periph_imp_s00_regslice_0.xci",
+      "size": 41177,
+      "sha256": "4d4f42d03cfd692a4fdbd8412153df63b810f7a4e1834ab1f227a66060e8536f"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_ps7_0_axi_periph_upgraded_ipi_imp_xbar_0/base_ps7_0_axi_periph_upgraded_ipi_imp_xbar_0.xci",
+      "size": 265652,
+      "sha256": "09e317e965ed0a620987099d9050568cfa62419745149ac5695f3f0668e5c2ca"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_rgb2lcd_0_0/base_rgb2lcd_0_0.xci",
+      "size": 8420,
+      "sha256": "b32dd4aff8d2c15a574daa70dc46c757bce455e3bc876c726887c79049681237"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_rst_ps7_0_fclk0_0/base_rst_ps7_0_fclk0_0.xci",
+      "size": 12738,
+      "sha256": "ffdf8661ec0a62a2ceb83a36f5f0e228bdb0c22fb3e712fd553d5333f0ef160d"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_rst_ps7_0_fclk1_0/base_rst_ps7_0_fclk1_0.xci",
+      "size": 12738,
+      "sha256": "5d7c429c2a7a80fbcf492bde6980d323e255318cde57e5f323a86c3691b8d5a5"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_rst_tcu_0_3/base_rst_tcu_0.xci",
+      "size": 12701,
+      "sha256": "0d046507411e5580d55f9970f33f1465f8b2db3e26c7f00848452c80e124de86"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_smartconnect_hp0_all_0_3/base_smartconnect_hp0_all_0.xci",
+      "size": 38325,
+      "sha256": "5431bdc42f056e1a24f4c00f125e368bf4c570cee551f52286f996109c2f931a"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_smartconnect_tcu_hp0_0_3/base_smartconnect_tcu_hp0_0.xci",
+      "size": 47467,
+      "sha256": "42053b359ce66347580ec1960489dabaec336ffae15d01781bb40022e3cadaa2"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_tcu_ctrl_cdc_0_3/base_tcu_ctrl_cdc_0.xci",
+      "size": 31312,
+      "sha256": "93dcd083fb0a613f0c1c60ade6426150c26d4232b42a3db30f88f12c2ad97d10"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_tcu_mem_cdc_0_3/base_tcu_mem_cdc_0.xci",
+      "size": 35267,
+      "sha256": "72ee5178c0db84e8c13f68f1170eaf5fe497236e8c8f3e8a0d54876030ab5c23"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_top_custom_perf_0_0_3/base_top_custom_perf_0_0.xci",
+      "size": 33593,
+      "sha256": "cf2ceaf271fb53efbc6082b8e583c8cfbdf7a4a41b3c4abfbca2cb1b07986504"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_touch_iic_0/base_touch_iic_0.xci",
+      "size": 47856,
+      "sha256": "d35ff266272e12595c678964eed366276f0230f87416a54ef7635de614537745"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_touch_int_gpio_0/base_touch_int_gpio_0.xci",
+      "size": 25426,
+      "sha256": "6125fd5052d671d4140677d6f5c8ed748e3641ab25b729017f823593da104ec1"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_touch_rst_gpio_0/base_touch_rst_gpio_0.xci",
+      "size": 25391,
+      "sha256": "33019e2d35dbfa4cc3980e43041c4346ff217ea66904737d212cbfc71ea59c09"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_v_axi4s_vid_out_0_0/base_v_axi4s_vid_out_0_0.xci",
+      "size": 17467,
+      "sha256": "79531fa88f24e0b3556fad18f109a5f5d78369dc17528073cc26bfdb8688dc2f"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_v_vid_in_axi4s_0_0/base_v_vid_in_axi4s_0_0.xci",
+      "size": 20157,
+      "sha256": "b4c8aba4168a65f3c153fa44e5f2e4b764e92cb68aeac1654045e970e9b7063c"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_vtc_out_0/base_vtc_out_0.xci",
+      "size": 39410,
+      "sha256": "efe08436f8e88f49d2704da3b273bf44c8881b45811a2b718f0b988e12d71758"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/bd/base/ip/base_xlconcat_0_0/base_xlconcat_0_0.xci",
+      "size": 34540,
+      "sha256": "0ab7b817899ce24e2f96cd79a3a013cb3b0413d3a1b7d379eb537dd562a4af4e"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.srcs/sources_1/hdl/base_wrapper.v",
+      "size": 13944,
+      "sha256": "333c445ab33b1a1f172671c4fd73c0d6f66f492221168f9aa574bdd8a911a7bf"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/6_ov5640_lcd/vivado/ov5640_lcd_tcu_touch.xpr",
+      "size": 13332,
+      "sha256": "d0aadd004e4dad083cae0b658bccf1c21df3659492567a0e5eb58f0189f1b3ae"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/axi_dynclk/data/axi_dynclk.mdd",
+      "size": 195,
+      "sha256": "636fd9a31bfcb3e0dffb9da094196a716f419396dbba482ae96ef26ff42bd617"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/axi_dynclk/data/axi_dynclk.tcl",
+      "size": 166,
+      "sha256": "a9ffd929f4395aa6bddaa6e37713a6c7b237f20f34f8fd73c01de20e162dce7a"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/axi_dynclk/src/Makefile",
+      "size": 535,
+      "sha256": "a4add8f78f72aa2694d707763d9c2ddc26c263b6f29f211df8b5e62da65b5b0f"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/axi_dynclk/src/display_ctrl.c",
+      "size": 14932,
+      "sha256": "3c6b7fb56526f0b9b0af27ba3d9d43e0deb9380962d58a18283cbdfe8ed71d6a"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/axi_dynclk/src/display_ctrl.h",
+      "size": 4647,
+      "sha256": "c21813228fd1f17b20386b32111fe29ae144a18ae349b7f9830b3cb94a8ce3f5"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/axi_dynclk/src/dynclk.c",
+      "size": 7801,
+      "sha256": "d40a8ce32203282b16881c7a110e611e1a8fe76ee8284f914e2a0a72f4a12c77"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/axi_dynclk/src/dynclk.h",
+      "size": 9223,
+      "sha256": "7815ae7c3a1fcfbebc44630826b30639a0fd5475b126cf133429f00bbacd7226"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/axi_dynclk/src/lcd_modes.h",
+      "size": 3300,
+      "sha256": "fd9ef75ebd6921e4df5c5be5ece0ebcd7cc435adb251248150360576795151b6"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/component.xml",
+      "size": 41440,
+      "sha256": "c48cd36780fcb87a897305d1fcfdd16cf77765425b20a43ca348df62a4ec6af7"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/drivers/display_ctrl/display_ctrl.c",
+      "size": 14932,
+      "sha256": "3c6b7fb56526f0b9b0af27ba3d9d43e0deb9380962d58a18283cbdfe8ed71d6a"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/drivers/display_ctrl/display_ctrl.h",
+      "size": 4661,
+      "sha256": "058d9d9e5e6812f7e09cc28602565b97c158518201a219bca5b257ea06877607"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/drivers/display_ctrl/lcd_modes.h",
+      "size": 3312,
+      "sha256": "670836060ed0cc21065a1886ce2e3387b919e0e1905e4d1648a0fab713269ea3"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/drivers/dynclk/dynclk.c",
+      "size": 7801,
+      "sha256": "d40a8ce32203282b16881c7a110e611e1a8fe76ee8284f914e2a0a72f4a12c77"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/drivers/dynclk/dynclk.h",
+      "size": 9223,
+      "sha256": "7815ae7c3a1fcfbebc44630826b30639a0fd5475b126cf133429f00bbacd7226"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/src/axi_dynclk.vhd",
+      "size": 10307,
+      "sha256": "334a8c8bf5fe3baefb4e44fb0de36a5b37248b08c3786bb7308d012810d837df"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/src/axi_dynclk_S00_AXI.vhd",
+      "size": 19078,
+      "sha256": "504bb82e0706e4c3d650b59736afc41b398aacf0e03e97f3b95b8b594178b7cb"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/src/mmcme2_drp.v",
+      "size": 15778,
+      "sha256": "78dc2dbc3fb937ab12611fe53d236182af43099690407a3432e5ea5bdaf367c8"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/axi_dynclk_v1_0/xgui/axi_dynclk_v1_0.tcl",
+      "size": 1929,
+      "sha256": "a74b7a76f9d288ef3325656081c3d27dbce43999e8db498f875ab2abf48696b3"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/cmos_sensor/SRC/cmos_capture_data.v",
+      "size": 5287,
+      "sha256": "12a4ae4c42967a3a9681deeaaca5b70ac0a728633e2cc527fcc8074a2ced3dd7"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/cmos_sensor/component.xml",
+      "size": 42695,
+      "sha256": "db45ce382b3f938a9ae4bf46b15601b856b9802b15c0bb2736b238dce8dea1a2"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/cmos_sensor/xgui/cmos_capture_data_v1_1.tcl",
+      "size": 205,
+      "sha256": "e0725b60cdc4cd625ee059e557ee3f5569fcd085edf601849e69e4d438080d96"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/if/lcd/lcd.xml",
+      "size": 711,
+      "sha256": "2c564e27b6dbf6cc80790c165bc5e58cba51738f0a50807ded0591455c7d0069"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/if/lcd/lcd_rtl.xml",
+      "size": 3403,
+      "sha256": "4e0c4442a95fa4b2899c62330f9a4f63787bace52c4a72ed742a775bba620b30"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/rgb2lcd/if/lcd/lcd.xml",
+      "size": 778,
+      "sha256": "6d2ab9044ed4a8bcfbcffb56b7524f5812a1c7c3b044af75dad49805175e8181"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/rgb2lcd/if/lcd/lcd_rtl.xml",
+      "size": 4119,
+      "sha256": "cec1d62e4c784abea3561390d24f354487cb5810a32e26fb5f6acbc762fe2094"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/rgb2lcd/ip/rgb2lcd/component.xml",
+      "size": 54083,
+      "sha256": "5f498c12615e884583135cefff1597ae9bc707f1b2a98e12ea5adde64ab85e51"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/rgb2lcd/ip/rgb2lcd/doc/rgb2lcd.org",
+      "size": 916,
+      "sha256": "223009cdf8b766bc9a93d2311b5693f811b5d7f7140a48160959b4706e6585bd"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/rgb2lcd/ip/rgb2lcd/gui/rgb2lcd_v1_4.gtcl",
+      "size": 177,
+      "sha256": "4ac33add53dcbbf89b302ac1aa5be08640667b6420e3307c520d5bf2d27b818b"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/rgb2lcd/ip/rgb2lcd/src/rgb2lcd.v",
+      "size": 4058,
+      "sha256": "7ebaf7a14cc58cd0db6debdaaeab574d48cb380e58e7e57ba207af304adfd0fc"
+    },
+    {
+      "path": "vivado_project/ZYNQ_7020_PYNQ/ip_repo/rgb2lcd/ip/rgb2lcd/xgui/rgb2lcd_v1_4.tcl",
+      "size": 4359,
+      "sha256": "f63c4f47062dff207327c8d80ade87c8f1590a217637b750455e7e0ecf95be52"
+    }
+  ]
+}

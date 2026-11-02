@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1500" viewBox="0 0 2200 1500">
+<title>D 模式 · 从字形识别到计算</title>
+<desc>图 3　数字与算符使用独立支持库，复用同一个视觉 TCU；表达式计算在 PS 完成</desc>
+<rect width="100%" height="100%" fill="white"/>
+<text x="60.0" y="84.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="44" font-weight="700" fill="#1A2D40">D 模式 · 从字形识别到计算</text>
+<text x="60.0" y="133.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#536375">图 3　数字与算符使用独立支持库，复用同一个视觉 TCU；表达式计算在 PS 完成</text>
+<polyline points="60,170 2140,170" fill="none" stroke="#DCE3E9" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="60,192 130,192" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="145.0" y="199.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#536375">图像 / 特征 / 事件</text>
+<polyline points="430,192 500,192" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<text x="515.0" y="199.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#536375">配置 / 管理 / 恢复</text>
+<text x="1500.0" y="199.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#536375"># 编号对应 model.md</text>
+<rect x="60" y="270" width="400" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="121.5" y="325.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#10 实时 / 冻结原始帧</text>
+<text x="136.0" y="365.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">FREEZE 保存原始帧副本</text>
+<rect x="560" y="270" width="400" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="668.5" y="325.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#2 D 字符 ROI</text>
+<text x="645.0" y="365.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">先取原尺寸的单个字形</text>
+<rect x="1110" y="270" width="420" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1223.0" y="325.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#14 字形预处理</text>
+<text x="1174.0" y="365.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">灰度 / 二值 / 形态 → 32×32</text>
+<rect x="1670" y="270" width="420" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1796.5" y="325.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#19 输入适配</text>
+<text x="1719.5" y="365.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">数值预处理 / 12 路打包 / DMA</text>
+<rect x="1670" y="510" width="420" height="130" rx="12" fill="#EDF6EF" stroke="#96BBA2" stroke-width="2"/>
+<text x="1757.5" y="565.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#275639">#18 同一个 PL TCU</text>
+<text x="1741.0" y="605.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#275639">现有 ResNet 骨干提取特征</text>
+<rect x="1110" y="510" width="420" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1236.5" y="565.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#19 输出适配</text>
+<text x="1147.0" y="605.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">按模型分段：raw84 → feature80</text>
+<rect x="560" y="510" width="400" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="676.5" y="565.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#10 字形预览</text>
+<text x="638.0" y="605.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">显示 32×32 二值化输入</text>
+<rect x="60" y="800" width="400" height="160" rx="12" fill="#FFF5DF" stroke="#D3BA85" stroke-width="2"/>
+<text x="149.5" y="854.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#624B22">#17 独立缓存文件</text>
+<text x="171.0" y="894.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#624B22">数字 0～9 支持库</text>
+<text x="143.5" y="927.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#624B22">加 / 减 / 乘 / 除支持库</text>
+<rect x="560" y="800" width="400" height="160" rx="12" fill="#FFF5DF" stroke="#D3BA85" stroke-width="2"/>
+<text x="676.5" y="854.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#624B22">#17 启动加载</text>
+<text x="644.5" y="894.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#624B22">数字 / 算符独立数据区</text>
+<text x="631.5" y="927.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#624B22">OP MODE 选择其中一套</text>
+<rect x="1110" y="800" width="420" height="160" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1162.0" y="854.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#8 / #9 / #15 NCM 分类</text>
+<text x="1193.0" y="894.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">数字分类器 / 算符分类器</text>
+<text x="1170.5" y="927.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">各自的均值、样本与预测历史</text>
+<rect x="1670" y="800" width="420" height="160" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1769.5" y="854.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#11 候选稳定检查</text>
+<text x="1764.0" y="894.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">平滑 / 门限 / 连续一致</text>
+<text x="1753.5" y="927.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">屏幕结果与当前候选一致</text>
+<rect x="1670" y="1120" width="420" height="140" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1732.5" y="1180.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#11 READY 后用户确认</text>
+<text x="1711.0" y="1220.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">冻结 + Xn / OPn；防止重复存入</text>
+<rect x="1110" y="1120" width="420" height="140" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1223.0" y="1180.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#11 表达式编辑</text>
+<text x="1145.5" y="1220.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">数字 / 算符交替；UNDO / RESET</text>
+<rect x="560" y="1120" width="400" height="140" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="655.5" y="1180.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#12 PS 四则运算</text>
+<text x="601.5" y="1220.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">OUT → 有理数计算 / 错误处理</text>
+<rect x="60" y="1120" width="400" height="140" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="154.0" y="1180.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#1 LCD 结果显示</text>
+<text x="133.5" y="1220.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">表达式、结果或错误提示</text>
+<polyline points="460,335 560,335" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="560.0,335.0 546.0,329.0 546.0,341.0" fill="#43566B"/>
+<polyline points="960,335 1110,335" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1110.0,335.0 1096.0,329.0 1096.0,341.0" fill="#43566B"/>
+<polyline points="1530,335 1670,335" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1670.0,335.0 1656.0,329.0 1656.0,341.0" fill="#43566B"/>
+<polyline points="1880,400 1880,510" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1880.0,510.0 1886.0,496.0 1874.0,496.0" fill="#43566B"/>
+<polyline points="1670,575 1530,575" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1530.0,575.0 1544.0,581.0 1544.0,569.0" fill="#43566B"/>
+<rect x="1561.5" y="538" width="77.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1569.5" y="561.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">raw84</text>
+<polyline points="1320,640 1320,800" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1320.0,800.0 1326.0,786.0 1314.0,786.0" fill="#43566B"/>
+<rect x="1362.0" y="703" width="56.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1370.0" y="726.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">80D</text>
+<polyline points="1250,400 1250,455 760,455 760,510" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="760.0,510.0 766.0,496.0 754.0,496.0" fill="#43566B"/>
+<polyline points="460,880 560,880" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="560.0,880.0 546.0,874.0 546.0,886.0" fill="#43566B"/>
+<polyline points="960,880 1110,880" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1110.0,880.0 1096.0,874.0 1096.0,886.0" fill="#43566B"/>
+<rect x="985.0" y="840" width="100.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="993.0" y="863.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">支持样本</text>
+<polyline points="1530,880 1670,880" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1670.0,880.0 1656.0,874.0 1656.0,886.0" fill="#43566B"/>
+<polyline points="1880,960 1880,1120" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1880.0,1120.0 1886.0,1106.0 1874.0,1106.0" fill="#43566B"/>
+<rect x="1907.0" y="1018" width="86.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1915.0" y="1041.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">READY</text>
+<polyline points="1670,1190 1530,1190" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1530.0,1190.0 1544.0,1196.0 1544.0,1184.0" fill="#43566B"/>
+<polyline points="1110,1190 960,1190" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="960.0,1190.0 974.0,1196.0 974.0,1184.0" fill="#43566B"/>
+<polyline points="560,1190 460,1190" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="460.0,1190.0 474.0,1196.0 474.0,1184.0" fill="#43566B"/>
+<text x="1110.0" y="248.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#536375">#25 同一后台线程：字形处理、TCU 调用与分类串行执行</text>
+<rect x="60" y="1330" width="2080" height="90" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="617.0" y="1365.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">#17 支持图片 → #14 相同字形预处理 → #18 实板 TCU → 数字 / 算符缓存文件</text>
+<text x="731.5" y="1405.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">建库命令独立运行；A/B 的 SAVE / LOAD 不会加载或修改这两套支持库</text>
+<text x="60.0" y="1473.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#536375">冻结时仍持续读取摄像头帧；每个 X 只存一个 0～9 数字；TCU 做视觉特征，算术由 PS 执行。</text>
+</svg>

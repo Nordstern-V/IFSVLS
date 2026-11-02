@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1540" viewBox="0 0 2200 1540">
+<title>A / B · 学习与物品识别流程</title>
+<desc>图 2　左侧学习结果可重复用于中间手动识别和右侧自动扫描；三列调用同一个 TCU</desc>
+<rect width="100%" height="100%" fill="white"/>
+<text x="60.0" y="84.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="44" font-weight="700" fill="#1A2D40">A / B · 学习与物品识别流程</text>
+<text x="60.0" y="133.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#536375">图 2　左侧学习结果可重复用于中间手动识别和右侧自动扫描；三列调用同一个 TCU</text>
+<polyline points="60,170 2140,170" fill="none" stroke="#DCE3E9" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="60,192 130,192" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="145.0" y="199.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#536375">图像 / 特征 / 事件</text>
+<polyline points="430,192 500,192" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<text x="515.0" y="199.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#536375">配置 / 管理 / 恢复</text>
+<text x="1500.0" y="199.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#536375"># 编号对应 model.md</text>
+<rect x="60" y="270" width="610" height="110" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="276.0" y="315.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#3 A 学习请求</text>
+<text x="157.5" y="355.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">画框 → 可选 #6 命名 / Enter → 点 1～4</text>
+<rect x="60" y="440" width="610" height="110" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="238.0" y="485.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#13 ROI 裁剪 / 缩放</text>
+<text x="189.5" y="525.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">取未叠加 UI 的原始图像 → 32×32</text>
+<rect x="60" y="610" width="610" height="110" rx="12" fill="#EDF6EF" stroke="#96BBA2" stroke-width="2"/>
+<text x="165.5" y="655.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#275639">#25 / #19 / #18 共享 TCU 调用</text>
+<text x="207.5" y="695.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#275639">输出 80D 特征；默认累计 8 帧</text>
+<rect x="60" y="780" width="610" height="110" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="249.5" y="825.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#3 学习完成并提交</text>
+<text x="191.5" y="865.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">特征 + HSV + 框尺寸 + 显示名称</text>
+<rect x="60" y="950" width="610" height="130" rx="12" fill="#FFF5DF" stroke="#D3BA85" stroke-width="2"/>
+<text x="233.5" y="1005.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#624B22">#7 A/B 内存学习数据</text>
+<text x="161.0" y="1045.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#624B22">class1～class4；供手动与扫描重复使用</text>
+<rect x="60" y="1160" width="610" height="130" rx="12" fill="#FFF5DF" stroke="#D3BA85" stroke-width="2"/>
+<text x="224.5" y="1215.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#624B22">#7 pefsl_learned.npz</text>
+<text x="141.5" y="1255.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#624B22">SAVE 写文件 / LOAD 恢复 / CLEAR 清内存</text>
+<rect x="790" y="270" width="610" height="110" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1005.0" y="315.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#4 B 手动 ROI</text>
+<text x="991.5" y="355.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">同一个框按周期刷新</text>
+<rect x="790" y="440" width="610" height="110" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="968.0" y="485.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#13 ROI 裁剪 / 缩放</text>
+<text x="996.0" y="525.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">原始图像 → 32×32</text>
+<rect x="790" y="610" width="610" height="110" rx="12" fill="#EDF6EF" stroke="#96BBA2" stroke-width="2"/>
+<text x="895.5" y="655.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#275639">#25 / #19 / #18 共享 TCU 调用</text>
+<text x="1020.0" y="695.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#275639">输出 80D 特征</text>
+<rect x="790" y="780" width="610" height="110" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="970.5" y="825.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#15 A/B NCM 分类</text>
+<text x="933.0" y="865.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">全局居中 / 类别均值 / 距离分数</text>
+<rect x="790" y="950" width="610" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="979.5" y="1005.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#4 名称与类间分数</text>
+<text x="953.0" y="1045.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">读取 A/B 数据中的类别名称</text>
+<rect x="790" y="1160" width="610" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="989.0" y="1215.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#1 LCD 叠加显示</text>
+<text x="961.5" y="1255.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">框内物体变化 → 再次识别</text>
+<rect x="1520" y="270" width="620" height="110" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1714.5" y="315.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#5 多尺度轮换窗口</text>
+<text x="1669.0" y="355.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">使用已学习框尺寸生成候选区域</text>
+<rect x="1520" y="440" width="620" height="110" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1674.0" y="485.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#13 窗口裁剪 + 颜色统计</text>
+<text x="1652.5" y="525.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">32×32 图像 / HSV / 中心与周围差</text>
+<rect x="1520" y="610" width="620" height="110" rx="12" fill="#EDF6EF" stroke="#96BBA2" stroke-width="2"/>
+<text x="1630.5" y="655.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#275639">#25 / #19 / #18 共享 TCU 调用</text>
+<text x="1755.0" y="695.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#275639">输出 80D 特征</text>
+<rect x="1520" y="780" width="620" height="110" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1679.0" y="825.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#16 余弦匹配与背景筛选</text>
+<text x="1656.0" y="865.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">类别分差 / 颜色 / 对比 / 尺寸限制</text>
+<rect x="1520" y="950" width="620" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1746.5" y="1005.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#16 候选确认</text>
+<text x="1651.0" y="1045.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">每类优选 → NMS → 连续周期确认</text>
+<rect x="1520" y="1160" width="620" height="130" rx="12" fill="#EDF4FB" stroke="#93B2CB" stroke-width="2"/>
+<text x="1724.0" y="1215.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#173C5B">#1 LCD 叠加显示</text>
+<text x="1661.0" y="1255.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#173C5B">已确认目标框 + 名称 + 匹配分数</text>
+<polyline points="365,380 365,440" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="365.0,440.0 371.0,426.0 359.0,426.0" fill="#43566B"/>
+<polyline points="365,550 365,610" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="365.0,610.0 371.0,596.0 359.0,596.0" fill="#43566B"/>
+<polyline points="365,720 365,780" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="365.0,780.0 371.0,766.0 359.0,766.0" fill="#43566B"/>
+<polyline points="365,890 365,950" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="365.0,950.0 371.0,936.0 359.0,936.0" fill="#43566B"/>
+<polyline points="1095,380 1095,440" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1095.0,440.0 1101.0,426.0 1089.0,426.0" fill="#43566B"/>
+<polyline points="1095,550 1095,610" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1095.0,610.0 1101.0,596.0 1089.0,596.0" fill="#43566B"/>
+<polyline points="1095,720 1095,780" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1095.0,780.0 1101.0,766.0 1089.0,766.0" fill="#43566B"/>
+<polyline points="1095,890 1095,950" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1095.0,950.0 1101.0,936.0 1089.0,936.0" fill="#43566B"/>
+<polyline points="1095,1080 1095,1160" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1095.0,1160.0 1101.0,1146.0 1089.0,1146.0" fill="#43566B"/>
+<polyline points="1830,380 1830,440" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1830.0,440.0 1836.0,426.0 1824.0,426.0" fill="#43566B"/>
+<polyline points="1830,550 1830,610" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1830.0,610.0 1836.0,596.0 1824.0,596.0" fill="#43566B"/>
+<polyline points="1830,720 1830,780" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1830.0,780.0 1836.0,766.0 1824.0,766.0" fill="#43566B"/>
+<polyline points="1830,890 1830,950" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1830.0,950.0 1836.0,936.0 1824.0,936.0" fill="#43566B"/>
+<polyline points="1830,1080 1830,1160" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1830.0,1160.0 1836.0,1146.0 1824.0,1146.0" fill="#43566B"/>
+<polyline points="365,1080 365,1160" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="365.0,1160.0 371.0,1146.0 359.0,1146.0" fill="#43566B"/>
+<polygon points="365.0,1080.0 359.0,1094.0 371.0,1094.0" fill="#43566B"/>
+<polyline points="670,985 730,985 730,835 790,835" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="790.0,835.0 776.0,829.0 776.0,841.0" fill="#43566B"/>
+<rect x="701.0" y="898" width="58.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="709.0" y="921.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">特征</text>
+<polyline points="670,1040 705,1040 705,1335 1470,1335 1470,835 1520,835" fill="none" stroke="#43566B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1520.0,835.0 1506.0,829.0 1506.0,841.0" fill="#43566B"/>
+<rect x="936.5" y="1301" width="247.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="944.5" y="1324.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#43566B">学习特征 / 颜色 / 框尺寸</text>
+<polyline points="670,1040 705,1040 705,1335 1470,1335 1470,325 1520,325" fill="none" stroke="#8390A0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 7"/>
+<polygon points="1520.0,325.0 1506.0,319.0 1506.0,331.0" fill="#8390A0"/>
+<rect x="1430.5" y="243" width="79.0" height="32" rx="3" fill="white" stroke="white" stroke-width="0"/>
+<text x="1438.5" y="266.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#8390A0">框尺寸</text>
+<rect x="60" y="1390" width="2080" height="95" rx="12" fill="#F3F4F6" stroke="#B2BAC4" stroke-width="2"/>
+<text x="458.5" y="1428.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#364457">共用特征服务：32×32 BGR → 数值预处理 / 12 路打包 → DMA ↔ PL TCU → raw84 拆分 → feature80</text>
+<text x="632.0" y="1468.0" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#364457">调用框表示同一服务的多个入口；B 手动使用 NCM，SCAN 使用独立的余弦匹配与筛选流程</text>
+</svg>

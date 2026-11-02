@@ -1,0 +1,43 @@
+flowchart TB
+    a0["#3 A 学习请求<br/>画框 → 可选 #6 命名 / Enter → 点 1～4"]:::ps
+    a1["#13 ROI 裁剪 / 缩放<br/>取未叠加 UI 的原始图像 → 32×32"]:::ps
+    a2["#25 / #19 / #18 共享 TCU 调用<br/>输出 80D 特征；默认累计 8 帧"]:::pl
+    a3["#3 学习完成并提交<br/>特征 + HSV + 框尺寸 + 显示名称"]:::ps
+    bank["#7 A/B 内存学习数据<br/>class1～class4；供手动与扫描重复使用"]:::data
+    npz["#7 pefsl_learned.npz<br/>SAVE 写文件 / LOAD 恢复 / CLEAR 清内存"]:::data
+    b0["#4 B 手动 ROI<br/>同一个框按周期刷新"]:::ps
+    b1["#13 ROI 裁剪 / 缩放<br/>原始图像 → 32×32"]:::ps
+    b2["#25 / #19 / #18 共享 TCU 调用<br/>输出 80D 特征"]:::pl
+    b3["#15 A/B NCM 分类<br/>全局居中 / 类别均值 / 距离分数"]:::ps
+    b4["#4 名称与类间分数<br/>读取 A/B 数据中的类别名称"]:::ps
+    b5["#1 LCD 叠加显示<br/>框内物体变化 → 再次识别"]:::ps
+    s0["#5 多尺度轮换窗口<br/>使用已学习框尺寸生成候选区域"]:::ps
+    s1["#13 窗口裁剪 + 颜色统计<br/>32×32 图像 / HSV / 中心与周围差"]:::ps
+    s2["#25 / #19 / #18 共享 TCU 调用<br/>输出 80D 特征"]:::pl
+    s3["#16 余弦匹配与背景筛选<br/>类别分差 / 颜色 / 对比 / 尺寸限制"]:::ps
+    s4["#16 候选确认<br/>每类优选 → NMS → 连续周期确认"]:::ps
+    s5["#1 LCD 叠加显示<br/>已确认目标框 + 名称 + 匹配分数"]:::ps
+    shared["共用特征服务：32×32 BGR → 数值预处理 / 12 路打包 → DMA ↔ PL TCU → raw84 拆分 → feature80<br/>调用框表示同一服务的多个入口；B 手动使用 NCM，SCAN 使用独立的余弦匹配与筛选流程"]:::tool
+    a0 --> a1
+    a1 --> a2
+    a2 --> a3
+    a3 --> bank
+    b0 --> b1
+    b1 --> b2
+    b2 --> b3
+    b3 --> b4
+    b4 --> b5
+    s0 --> s1
+    s1 --> s2
+    s2 --> s3
+    s3 --> s4
+    s4 --> s5
+    bank <--> npz
+    bank -->|"特征"| b3
+    bank -->|"学习特征 / 颜色 / 框尺寸"| s3
+    bank -.->|"框尺寸"| s0
+    classDef ps fill:#EDF4FB,stroke:#93B2CB,color:#173C5B
+    classDef pl fill:#EDF6EF,stroke:#96BBA2,color:#275639
+    classDef data fill:#FFF5DF,stroke:#D3BA85,color:#624B22
+    classDef tool fill:#F3F4F6,stroke:#B2BAC4,color:#364457
+    classDef ext fill:#FFFFFF,stroke:#9CAABA,color:#25394C

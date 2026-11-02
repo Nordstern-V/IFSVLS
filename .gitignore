@@ -1,0 +1,32 @@
+# Generated build and runtime data
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.Xil/
+*.cache/
+*.runs/
+*.gen/
+*.sim/
+*.hw/
+*.ip_user_files/
+*.log
+*.jou
+*.rpt
+*.str
+*.dcp
+*.ltx
+build/
+validation_result/
+tmp/
+backups/
+reply/
+recovery/
+*_backup*/
+_ab_r17_oracle_*/
+.venv/
+venv/
+.env
+.env.*
+pefsl_learned.npz
+# Optional rebuilt glyph caches; supplied digit cache remains versioned.
+pynq_app/operator_support_r17.npz

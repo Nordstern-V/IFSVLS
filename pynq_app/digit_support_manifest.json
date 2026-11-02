@@ -1,0 +1,43 @@
+{
+  "source": "E:/FPGA-3up/PEFSL/PEFSL-main/support",
+  "destination": "pynq_app/digit_support",
+  "classes": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "excluded_classes": [
+    "div",
+    "mul",
+    "plus",
+    "sub"
+  ],
+  "accepted_filename_patterns": [
+    "<digit>_<index>.png",
+    "debug_binary_<index>.png"
+  ],
+  "sample_counts": {
+    "0": 5,
+    "1": 5,
+    "2": 5,
+    "3": 5,
+    "4": 5,
+    "5": 4,
+    "6": 5,
+    "7": 5,
+    "8": 5,
+    "9": 5
+  },
+  "total_images": 49,
+  "feature_cache": "pynq_app/digit_support_r17.npz",
+  "feature_cache_status": "included_existing_board_generated_r17_v2_cache",
+  "feature_cache_sha256": "2d0ec2b461de2a061effc01786b9a7262c1893385df3533bd00ff666b1f331e3",
+  "feature_cache_note": "Cache is readable; its bitstream/tmodel hashes match bundled deployment inputs. Rebuild on board when model, preprocessing or support inputs change."
+}

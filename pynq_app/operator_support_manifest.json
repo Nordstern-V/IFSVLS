@@ -1,0 +1,194 @@
+{
+  "schema": "operator_support_manifest_v1",
+  "source": "E:/FPGA-3up/PEFSL_MIX_PLUS/support",
+  "destination": "pynq_app/operator_support",
+  "classes": [
+    "plus",
+    "sub",
+    "mul",
+    "div"
+  ],
+  "label_symbols": {
+    "plus": "+",
+    "sub": "-",
+    "mul": "*",
+    "div": "/"
+  },
+  "accepted_filename_patterns": [
+    "<label>_<index>.png",
+    "debug_binary_<index>.png"
+  ],
+  "sample_counts": {
+    "plus": 5,
+    "sub": 5,
+    "mul": 5,
+    "div": 5
+  },
+  "total_images": 20,
+  "preprocess_version": "r17-symbol-preprocess-v1",
+  "feature_cache": "pynq_app/operator_support_r17.npz",
+  "feature_cache_status": "not_generated_until_board_side_r17_tcu_extraction",
+  "source_comparison": "20 of 20 files match source byte for byte",
+  "files": [
+    {
+      "path": "plus/debug_binary_0006.png",
+      "sha256": "ecfa1c51f2ab54caeedc55e6d20e6f9ee6a291b39a465e02dc145677202ed99b",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "plus/debug_binary_0007.png",
+      "sha256": "6ffd2db221eed8e2d66a48e5f4e5e995028626cad510eed9f566cdf59fc4138b",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "plus/debug_binary_0008.png",
+      "sha256": "f9decdebd26d6ffc7ebe3b56f0f9195171601e3e89cf17dd50f1caeed2d8ebc0",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "plus/debug_binary_0027.png",
+      "sha256": "82bd1127f958a4bd68dbe9933d708b145e713b2694bf8d239f49f063e1584e46",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "plus/debug_binary_0028.png",
+      "sha256": "584ef619cb2429133d7d7697e7805195ad03bda8d3e624a8ab80dd56fcef408d",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "sub/sub_0.png",
+      "sha256": "9d2fce2fb9e83390f349dbd9865842ce80e69b32390f18c7073bcc939c7a299e",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "sub/sub_1.png",
+      "sha256": "2db64843b41e0292e76505c043ca117e57672521b477bd0d4e55c74dd34ee37d",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "sub/sub_2.png",
+      "sha256": "b5713a5125cd26db3e6dba0edd1872b5cd4668a72dcb1aa7f0a5c0bf02bbdd80",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "sub/sub_3.png",
+      "sha256": "d5b547cdb081e688d064f9761b9613042a9f7a136de404fda653b94326357e0c",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "sub/sub_4.png",
+      "sha256": "13dab8c840c3d71885666c1288cbebd4d613ca73f7f5bc0910ec1a2899a756be",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 2
+    },
+    {
+      "path": "mul/debug_binary_0014.png",
+      "sha256": "78dc720bd0320aa7ceaf3c39f1dd3572521965d0fb799b64cc7d9c70e7d0b065",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "mul/debug_binary_0015.png",
+      "sha256": "ce1702d542a74ae7dee7a88580970df8b1f933bbeb2bd1bf820a8e6362f6038f",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "mul/debug_binary_0016.png",
+      "sha256": "59de9568724a821e4ea8fbe332d57467f7addc8381a83e8ddf715152d91ec122",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "mul/debug_binary_0017.png",
+      "sha256": "0a842be8b3aba5383932743e98c80989feeb6723307ad601ae57cab351b8479c",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "mul/debug_binary_0018.png",
+      "sha256": "d7682e956f66158ab0a03cef735df2a9d73700cb5dac83dfc98f9bd097ca809a",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "div/debug_binary_0022.png",
+      "sha256": "18a3d2dffee39b398ee102394704a47d98dd74ca1f18acf45e52073a0e9ec693",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "div/debug_binary_0023.png",
+      "sha256": "02a76afe3bcdb1a730308b2947b2820b2d38cf354e13c83f7cdb0c7d2b381d15",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "div/debug_binary_0024.png",
+      "sha256": "f9412ef90ad4f01a91a5ae61cf0e0933e27b093b9f06c270692ccf95e589a932",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "div/debug_binary_0025.png",
+      "sha256": "dd9f80c135b4311204caba4e61b54f5413a5b1297ba0ec60a301753e1a65a84e",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    },
+    {
+      "path": "div/debug_binary_0026.png",
+      "sha256": "c1d21c8bd68b5d5e38986aa45059b7b550d0a5b9ee4d056ed2695780b05fc9bc",
+      "width": 32,
+      "height": 32,
+      "png_bit_depth": 8,
+      "png_color_type": 0
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+﻿group,version,case,learning_stage,repeat,duration_seconds,first_formal_by_class_seconds,as_loaded,comment
+stored_toy,C196,toy,two,0,30,"{""1"": 29.593}",True,static paired raw frame
+stored_toy,C196,toy,two,1,30,"{""1"": 13.673}",True,static paired raw frame
+stored_toy,C207,toy,two,0,30,{},True,static paired raw frame
+stored_toy,C207,toy,two,1,30,"{""1"": 10.73}",True,static paired raw frame
+video,C196,screen_video,two,0,9.767,"{""1"": 1.234}",False,screen capture with overlays
+video,C196,screen_video,two,1,9.767,"{""1"": 1.289}",False,screen capture with overlays
+video,C196,screen_video,two,2,9.767,"{""1"": 1.357}",False,screen capture with overlays
+video,C196,screen_video,two,3,9.767,"{""1"": 1.406}",False,screen capture with overlays
+video,C207,screen_video,two,0,9.767,"{""1"": 1.428}",False,screen capture with overlays
+video,C207,screen_video,two,1,9.767,"{""1"": 1.393}",False,screen capture with overlays
+video,C207,screen_video,two,2,9.767,"{""1"": 1.058}",False,screen capture with overlays
+video,C207,screen_video,two,3,9.767,"{""1"": 1.393}",False,screen capture with overlays
+background,C196,tape_scene_without_object,two,0,20,{},False,background control
+background,C196,toy_scene_without_object,two,0,20,{},False,background control
+background,C196,cup_a_scene_without_object,cup,0,20,"{""0"": 3.481}",False,background control
+background,C196,cup_b_scene_without_object,cup,0,20,"{""0"": 1.693}",False,background control
+background,C196,real_empty_bookcase,cup,0,20,{},False,background control
+background,C207,tape_scene_without_object,two,0,20,{},False,background control
+background,C207,toy_scene_without_object,two,0,20,{},False,background control
+background,C207,cup_a_scene_without_object,cup,0,20,"{""0"": 1.123}",False,background control
+background,C207,cup_b_scene_without_object,cup,0,20,"{""0"": 1.624}",False,background control
+background,C207,real_empty_bookcase,cup,0,20,{},False,background control

@@ -1,0 +1,51 @@
+{
+  "scope": "Existing offline runs; no images, recordings, NPZ or source code are included.",
+  "input_binding": {
+    "two_archive_sha256": "6d8f2dbb09989edc4041b2c54b039017064551a8104d1442e753cbd18be8cf64",
+    "cup_archive_sha256": "fc694afa5ed8ae7d56baa6bde6c14fa2a0dbc484a15b195c4197f4e3e9d9a94d"
+  },
+  "code_sha256": {
+    "C196_bbox_demo": "4231bf3433cb136ccbd6e22536163db621fdbef27ec358eb01289e9d54f07f1b",
+    "C207r2_bbox_demo": "6dbd1e50c4e7bd4debd092cbaea0b27454ad2220244f9a4b57ca776c43bd0f2a"
+  },
+  "original_files": [
+    {
+      "record": "stored_toy_baseline/results.json",
+      "sha256": "69b989a109b8063ed9feeda9f692acf3f88f2ac6769047c0418f53b4450283b6",
+      "bindings_sha256": "fcf8ce053da5f52f52af2ea539992698aa60ce61b396ce8ad6413990c25d5e25",
+      "as_loaded": true
+    },
+    {
+      "record": "stored_toy_candidate/results.json",
+      "sha256": "efa78da2f819e966c1d43cefff64bc07ba6551f36181ae741ec1357fa751adc6",
+      "bindings_sha256": "4209cc2d0ce6ef3631e12242291769f24c279a6e1422424ec103a922f328422a",
+      "as_loaded": true
+    },
+    {
+      "record": "video_baseline/results.json",
+      "sha256": "4cd8f4b9891326a268fb6f90255806b9606844ad9d7a20a4d39dc340bd2c936f",
+      "bindings_sha256": "ea920e062c0429ffcd6d731cc7a148a60556e1686b4f7994c9cddd8051998fad",
+      "as_loaded": false
+    },
+    {
+      "record": "video_candidate/results.json",
+      "sha256": "467d7e4af1e0df51bc487cee98e36f8a19b39def41185865294c4fbed2c47128",
+      "bindings_sha256": "451b67fdbd664e25457d454bb0f5e78af98f08493a1896f9ca861cfc9976b3d7",
+      "as_loaded": false
+    },
+    {
+      "record": "background_baseline/results.json",
+      "sha256": "e1504b11ba9a14fab8c6f974b23a25ac166a16ea4f84f1b1e7eda30935a55dfc",
+      "bindings_sha256": "a5479a2ae5672fd979b5450b705c381d5438b62aa109df2c20d5103980bc8dbf",
+      "as_loaded": false
+    },
+    {
+      "record": "background_candidate/results.json",
+      "sha256": "82c9c350a61888fd3ee462599324dd7a597f917527e77a4d9b0af0abe7ef9dfb",
+      "bindings_sha256": "e2fbc7310d08ee884320907e20a3205983d4fa8b93e43a8a6074813256a2dde1",
+      "as_loaded": false
+    }
+  ],
+  "summary_sha256": "7e0d2b8fc7d733db6bcb0f9b4d78e4717d49cb911a70270be017a01204b1e77b",
+  "notes": "File names identify the original result directories, which are not part of this package. Restore exact artifacts and dependencies separately for reproduction."
+}
