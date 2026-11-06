@@ -48,4 +48,10 @@ sudo -E /usr/local/share/pynq-venv/bin/python3 pynq_bbox_demo.py --seconds 30
 
 需要领航者 ZYNQ-7020（`xc7z020clg400-2`）、适配的 OV5640、800×480 RGB 触摸 LCD、厂家匹配 PYNQ 镜像，以及 USB Host 正常枚举的键盘（键盘命名功能）。通用 PYNQ-Z1 镜像不能直接代替这套板级环境。
 
-工程沿用 PEFSL 的预训练骨干/少样本分类路线、Tensil TCU 及相应驱动，包含厂家视频/板级 IP；各组件保留原文件内版权说明及已有许可证。`PEFSL_C124/LICENSE` 仅适用于其对应组件，本仓库未额外声明覆盖所有第三方组件的统一许可证。完整系统镜像、原始训练数据与重新训练/重新编译 TCU 的完整工具链不在本次交付范围；复现当前运行功能使用仓库内匹配的模型文件。
+工程沿用 PEFSL 的预训练骨干/少样本分类路线、Tensil TCU 及相应驱动，包含厂家视频/板级 IP；各组件保留原文件内版权说明及已有许可证。完整系统镜像、原始训练数据与重新训练/重新编译 TCU 的完整工具链不在本次交付范围；复现当前运行功能使用仓库内匹配的模型文件。
+
+## 许可证
+
+本项目的原创代码和文档采用 [MIT License](LICENSE)，版权归 Nordstern-V（2026）所有。
+
+第三方代码、模型、IP 及其他资源仍适用其各自的版权声明和许可证；根目录 MIT 许可证不替代这些条款。例如，[PEFSL_C124/LICENSE](PEFSL_C124/LICENSE) 适用于对应组件，[Tensil 驱动许可证](tcu_deploy/tcu_pynq/LICENSE) 为 Apache-2.0。

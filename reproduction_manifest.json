@@ -48,6 +48,11 @@
       "sha256": "2c59a2fcf97159a96dbf562bee206e0f5513e645e2c4bc4bacbb74b470676f1f"
     },
     {
+      "path": "LICENSE",
+      "size": 1068,
+      "sha256": "fd3913024afc8d80fd8de284617b548416c2ac1ba06797977dd952a6a964f102"
+    },
+    {
       "path": "PEFSL_C124/LICENSE",
       "size": 1071,
       "sha256": "c39d641cef6443296648f43baa4e7a2e28949c6f51f9be477909147d48a76ba1"
@@ -194,8 +199,8 @@
     },
     {
       "path": "README.md",
-      "size": 4376,
-      "sha256": "6838d0f6f44f5ca93b01c7458700e9133a3bb7de7205126d01c2bc04175c6bcc"
+      "size": 4593,
+      "sha256": "843ae1a5eaf55ef3207705291bebc3c630f000d507cee41c6371c20da060c499"
     },
     {
       "path": "artifacts/pefsl_mix_plus_touch.bit",
@@ -1567,5 +1572,6 @@
       "size": 4359,
       "sha256": "f63c4f47062dff207327c8d80ade87c8f1590a217637b750455e7e0ecf95be52"
     }
-  ]
+  ],
+  "last_updated_date": "2026-11-06"
 }
